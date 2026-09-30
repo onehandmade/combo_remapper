@@ -1,89 +1,100 @@
-# Combo Remapper v8.15 (AutoHotkey v2)
+# Combo ReMapper 8.15
 
-Combo Remapper turns difficult multi-key combinations into a single trigger key. It also supports single-key-to-mouse-action triggers and is designed with accessibility in mind. Use it with games and everyday applications to make keyboard and mouse controls easier to reach.
+**Combo ReMapper** is a feature-rich AutoHotkey v2 script designed to remap mouse actions, keyboard keys, and gamepad inputs into custom combo sequences, hotkeys, and macro routines. Built with accessibility and gaming in mind, it provides low-level input injection (scan codes, RawInput/DirectInput compatibility), smooth mouse movement routines, an On-Screen Display (OSD), and multi-profile support.
 
-> **Accessibility note:** This project was created to help people who have difficulty pressing multiple buttons together. It was developed with assistance from artificial intelligence because the developer has a disability affecting their hands. Contributions, testing, and helpful suggestions are welcome.
+---
 
-## What's new in v8.15
+## 🌟 Key Features
 
-- Updated to **Combo Remapper v8.15**.
-- Added compatibility guidance for games and applications.
-- Added information about compatible remapping modes.
-- Added an **About the Developer** section.
+* **Multi-Input Support:** Remap keyboard keys, mouse buttons, wheel events, and Gamepad / Controller triggers (`J1`-`J32`, `JPOVU`, `JPOVD`, `JPOVL`, `JPOVR`).
+* **5 Distinct Remap Modes:**
+  * **Hold:** Holds target keys down for as long as the trigger key is held down.
+  * **Toggle:** Toggles defined key states or continuous motion on and off with each press.
+  * **Press:** One-shot execution of a key combo sequence on press.
+  * **Turbo:** Continuously repeats a sequence at a specified millisecond interval while held.
+  * **TapHold:** Executes one action on a short tap (<250ms) and another on a long hold.
+* **Game-Compatible Input Engine:** 
+  * 3 switchable modes: **Game** (Scan codes + Raw mouse_event), **Classic** (SendInput), and **Hybrid**.
+  * Dynamic frame delay timing to ensure modern DirectInput and RawInput games properly register inputs.
+* **Advanced Mouse Automation:**
+  * Relative (`mX,Y`) and absolute (`mxX,Y`) mouse positioning.
+  * Timed smooth mouse sliding (`mmX,Y,ms`) and camera jitter/shake (`mshakeAmp,ms`).
+  * Continuous background mouse drift (`mhVX,VY`) for hold/toggle actions.
+  * Y-Axis lock hotkey (`F6`).
+* **Live Recording Engine:** Click **Auto** on any row to automatically capture incoming keyboard, mouse, or gamepad inputs into your active combo.
+* **OSD Overlay & Indicator:** Floating status indicator overlay (`F7` default) showing active script state and live macro feedback.
+* **Profiles & Import/Export:** Unlimited profiles saved locally (`.ini`), with fast clipboard sharing strings for exporting and importing configurations.
+* **Target Process Filtering:** Limit macro triggers to run only when a specific target executable (e.g., `game.exe`) is active.
+* **Accessibility Focused:** Created with open acknowledgement of accessibility-driven design principles.
 
-## Requirements
+---
 
-- **Windows**
-- **AutoHotkey v2** (not v1): https://www.autohotkey.com/
+## 🛠️ System Requirements
 
-The downloadable release also includes compiled `.exe` and source `.ahk` versions when available.
+* **OS:** Windows 10 / 11
+* **AutoHotkey:** [AutoHotkey v2.0+](https://www.autohotkey.com/) installed (or running compiled executable)
+* **Privileges:** Administrator privileges recommended when interacting with games running elevated (enabled by default).
 
-## How to run it
+---
 
-1. Install AutoHotkey v2 if you are running the `.ahk` version.
-2. Download and run the v8.15 release from the [Releases](https://github.com/onehandmade/combo_remapper/releases) page.
-3. Double-click `combo_remapper.ahk` to start the script. A small green **H** icon appears in the system tray.
-4. To stop it completely, right-click the tray icon and choose **Exit**.
+## 🚀 Quick Start Guide
 
-## Remapping modes
+1. **Launch the Script:** Run `Combo_ReMapper.ahk` (or the compiled `.exe`).
+2. **Add/Edit Combos:**
+   * Enter a **Trigger Key** in the left field (e.g., `F1`, `RButton`, `J1`).
+   * Enter your target key sequence in the **Holds/Executes keys** field, separated by commas (e.g., `shift,w` or `ctrl,c`).
+   * Select a **Mode** (*Hold*, *Toggle*, *Press*, *Turbo*, or *TapHold*).
+3. **Save Changes:** Click **Apply** to bind your new hotkeys and save state to the current profile.
+4. **Panic Hotkey:** Press **`F8`** (default) at any time to instantly suspend/resume all script hotkeys and clear stuck inputs.
 
-Combo Remapper supports these modes for games and applications:
+---
 
-- **Hold** — holds the mapped keys while the trigger is held.
-- **Toggle** — presses the trigger once to turn the mapped keys on, and again to turn them off.
-- **Press** — sends the mapped key sequence once per trigger.
-- **Turbo** — repeatedly sends the mapped sequence while enabled.
+## 📖 Syntax & Special Tokens Guide
 
-These modes can be used with games, emulators, productivity software, and other Windows applications. Some games or applications may restrict simulated input or may require the script to run with the same privileges as the target application.
+When writing combo sequences, you can use regular key names (`a`, `Space`, `LShift`, `RButton`) along with special action tokens:
 
-## Default controls
+### Delays & Timing
+* `d150` or `150` — Sleep/pause for 150 milliseconds before executing the next key in the sequence.
 
-| Key | Action |
-|---|---|
-| **F8** | Turn the whole script on/off (panic button) |
-| **K** | Mouse middle-click (scroll-wheel click) |
-| **F1** | Holds `L` + `1` together *(example — edit to match your bindings)* |
-| **F2** | Holds `Shift` + `W` together |
-| **F3** | Holds `Ctrl` + `C` together |
-| **F4** | Holds `Shift` + `Space` together |
-| **F5** | Holds `Ctrl` + `Shift` together |
+### Mouse Actions
+* `mlc` — Left Mouse Click
+* `mrc` — Right Mouse Click
+* `mmc` — Middle Mouse Click
+* `mdown` — Press and hold Left Mouse Button
+* `mup` — Release Left Mouse Button
+* `mwd2` / `mwu2` — Scroll Mouse Wheel Down / Up ($N$ ticks)
+* `m100,-50` — Instant relative mouse movement ($\Delta x=100$, $\Delta y=-50$)
+* `mx400,300` — Absolute mouse movement to screen coordinate ($X=400$, $Y=300$)
+* `mm200,0,500` — Smooth mouse movement ($\Delta x=200$, $\Delta y=0$ over $500\text{ ms}$)
+* `mshake12,600` — Screen/camera shake effect ($12\text{ px}$ intensity for $600\text{ ms}$)
+* `mh300,0` — Continuous mouse drift ($\Delta x=300\text{ px/sec}$) while held or toggled ON
 
-F8 turns everything off at once if you need to stop mid-game. While it is off, the other remappings do nothing; press F8 again to turn them back on.
+### Gamepad Input Tokens
+Gamepad triggers use the prefix `J` followed by the button number, or `JPOV` for D-Pad directions:
+* `J1` through `J32` — Controller Buttons 1 through 32
+* `JPOVU`, `JPOVD`, `JPOVL`, `JPOVR` — D-Pad Up, Down, Left, Right
 
-## Editing or adding your own combos
+---
 
-Open `combo_remapper.ahk` in Notepad or another text editor and find the combo definitions near the top:
+## ⌨️ Default Global Hotkeys
 
-```ahk
-combos := Map(
-    "F1", ["l", "1"],
-    "F2", ["shift", "w"],
-    "F3", ["ctrl", "c"],
-    "F4", ["shift", "space"],
-    "F5", ["ctrl", "shift"]
-)
-```
+| Hotkey | Action |
+| :--- | :--- |
+| **`F6`** | Toggle Y-Axis Mouse Lock |
+| **`F7`** | Toggle OSD (On-Screen Display) Overlay |
+| **`F8`** | Panic Key (Master Suspend / Kill-switch) |
 
-Each line means that pressing the trigger key holds or sends the specified real keys together. Edit the key names to change a combo, or add another line to create a new one. Save the file and restart it, or right-click the tray icon and choose **Reload Script**, for changes to take effect.
+---
 
-## Core capabilities
+## ⚙️ Configuration Files
 
-- **Execution modes:** Hold, Toggle, Press, and Turbo.
-- **Profile system:** Creates, loads, and saves configuration `.ini` files, with an auto-switcher for target executable windows.
-- **Auto Key Recorder:** Uses an interactive `InputHook` engine to capture keypresses and bind them to slots.
-- **Safety controls:** The panic key (default F8) stops active timers and releases held or toggled inputs.
-- **Customization:** Supports Dark, Light, custom HEX colors, background images, scroll-wheel navigation, and configurable key/mouse delays.
+Configuration and profile settings are automatically maintained in the script directory:
+* `remapper_global.ini` — Global startup preferences (e.g., `RunAsAdmin`).
+* `profiles/*.ini` — Profile-specific combo bindings, delays, and theme settings.
 
-## About the developer
+---
 
-Combo Remapper is maintained by **onehandmade**. The project was created to make keyboard and mouse controls more accessible for people who find simultaneous key presses difficult. Feedback, testing, documentation improvements, and accessibility suggestions are appreciated.
+## 👤 Author & Acknowledgments
 
-## Notes
-
-- Windows may show an antivirus warning for AutoHotkey scripts. This is common for scripts that simulate keyboard or mouse input; only allow the program if you trust the source.
-- Run the script with appropriate permissions if the target game or application is running as administrator.
-- If you also run the lockpicking mouse-circle script, both scripts can run together safely because they do not share keys.
-
-## Video
-
-https://youtu.be/6qu_r_OrRcw
+* **Author:** Dani
+* **Note:** Created with assistance from AI (Claude by Anthropic) to streamline software development and improve accessibility options for gaming and computing.
