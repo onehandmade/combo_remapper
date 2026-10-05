@@ -68,6 +68,7 @@
 | PCSX2 Emulator | ✅ Working | Fully compatible |
 | No More Heroes | ⚠️ Partly Working | Works in older versions; compatibility with current version untested |
 | My Hero Ultra Rumble | ✅ Working | Fully compatible |
+| Lollipop Chainsaw RePop | ❌ Not Working | Currently not compatible |
 | Unreal Engine 5+ | ❌ Not Working | Unreal Engine 5 and newer versions currently incompatible |
 
 ## 🛠️ System Requirements
