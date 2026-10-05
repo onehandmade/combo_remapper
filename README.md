@@ -1,6 +1,6 @@
 # Combo ReMapper 8.15
 
-**Combo ReMapper** is a feature-rich AutoHotkey v2 script designed to remap mouse actions, keyboard keys, and gamepad inputs into custom combo sequences, hotkeys, and macro routines. Built with accessibility in mind, it empowers users with disabilities and accessibility needs to play games and use software comfortably.
+**Combo ReMapper** is a feature-rich AutoHotkey v2 script designed to remap mouse actions, keyboard keys, and gamepad inputs into custom combo sequences, hotkeys, and macro routines. Built with acc[...]
 
 ## 🌟 Key Features
 
@@ -8,7 +8,7 @@
 
 * **5 Distinct Remap Modes:**
 
-  * **Toggle:** Toggles defined key states or continuous motion on and off with each press. *Perfect for converting holds into taps — a critical accessibility feature for users with limited grip strength or stamina.*
+  * **Toggle:** Toggles defined key states or continuous motion on and off with each press. *Perfect for converting holds into taps — a critical accessibility feature for users with limited grip[...]
 
   * **Hold:** Holds target keys down for as long as the trigger key is held down.
 
@@ -46,7 +46,7 @@
 
 ## ⚠️ Anti-Cheat & Game Compatibility
 
-**Important:** Input injection scripts are detected and handled differently by every game's anti-cheat system. Some games explicitly ban for input remapping, even when used for accessibility purposes. **Users with disabilities have no fallback option and may face account bans.**
+**Important:** Input injection scripts are detected and handled differently by every game's anti-cheat system. Some games explicitly ban for input remapping, even when used for accessibility purpo[...]
 
 ### Tested Compatible Games
 * **Known Safe:** Many indie games, older titles, and games without anti-cheat
@@ -60,6 +60,15 @@
 4. Join the accessibility community to ask about others' experiences with that specific title
 
 **We strongly recommend**: Always verify compatibility before relying on this tool in games that matter to you.
+
+### Compatibility List
+
+| Game/Platform | Status | Notes |
+| --- | --- | --- |
+| PCSX2 Emulator | ✅ Working | Fully compatible |
+| No More Heroes | ⚠️ Partly Working | Works in older versions; compatibility with current version untested |
+| My Hero Ultra Rumble | ✅ Working | Fully compatible |
+| Unreal Engine 5+ | ❌ Not Working | Unreal Engine 5 and newer versions currently incompatible |
 
 ## 🛠️ System Requirements
 
