@@ -1,6 +1,6 @@
 # Combo ReMapper 8.15
 
-**Combo ReMapper** is a feature-rich AutoHotkey v2 script designed to remap mouse actions, keyboard keys, and gamepad inputs into custom combo sequences, hotkeys, and macro routines. Built with accessibility at its core, this tool empowers users with limited hand mobility or dexterity to fully enjoy gaming and computing experiences.
+**Combo ReMapper** is a feature-rich AutoHotkey v2 script designed to remap mouse actions, keyboard keys, and gamepad inputs into custom combo sequences, hotkeys, and macro routines. Built with acc[...]
 
 ## 🌟 Key Features
 
@@ -8,7 +8,7 @@
 
 * **5 Distinct Remap Modes:**
 
-  * **Toggle:** Toggles defined key states or continuous motion on and off with each press. *Perfect for converting holds into taps — a critical accessibility feature for users with limited grip strength.*
+  * **Toggle:** Toggles defined key states or continuous motion on and off with each press. *Perfect for converting holds into taps — a critical accessibility feature for users with limited grip[...]
 
   * **Hold:** Holds target keys down for as long as the trigger key is held down.
 
@@ -17,7 +17,6 @@
   * **Turbo:** Continuously repeats a sequence at a specified millisecond interval while held.
 
   * **TapHold:** Executes one action on a short tap (<250ms) and another on a long hold.
-
 * **Game-Compatible Input Engine:**
 
   * 3 switchable modes: **Game** (Scan codes + Raw mouse_event), **Classic** (SendInput), and **Hybrid**.
@@ -46,7 +45,7 @@
 
 ## ⚠️ Anti-Cheat & Game Compatibility
 
-**Important:** Input injection scripts are detected and handled differently by every game's anti-cheat system. Some games explicitly ban for input remapping, even when used for accessibility purposes.
+**Important:** Input injection scripts are detected and handled differently by every game's anti-cheat system. Some games explicitly ban for input remapping, even when used for accessibility purpo[...]
 
 ### Tested Compatible Games
 * **Known Safe:** Many indie games, older titles, and games without anti-cheat
@@ -70,6 +69,7 @@
 | No More Heroes | ✅ Working | Fully compatible |
 | VRChat | ✅ Working | Fully compatible |
 | My Hero Ultra Rumble | ✅ Working | Fully compatible |
+| Lollipop Chainsaw | ✅ Working | Fully compatible |
 | Lollipop Chainsaw RePop | ❌ Not Working | Currently not compatible |
 | Unreal Engine 5+ | ❌ Not Working | Unreal Engine 5 and newer versions currently incompatible |
 
