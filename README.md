@@ -1,6 +1,6 @@
 # Combo ReMapper 8.15
 
-**Combo ReMapper** is a feature-rich AutoHotkey v2 script designed to remap mouse actions, keyboard keys, and gamepad inputs into custom combo sequences, hotkeys, and macro routines. Built with accessibility in mind.
+**Combo ReMapper** is a feature-rich AutoHotkey v2 script designed to remap mouse actions, keyboard keys, and gamepad inputs into custom combo sequences, hotkeys, and macro routines. Built with accessibility at its core, this tool empowers users with limited hand mobility or dexterity to fully enjoy gaming and computing experiences.
 
 ## 🌟 Key Features
 
@@ -73,15 +73,6 @@
 | Lollipop Chainsaw RePop | ❌ Not Working | Currently not compatible |
 | Unreal Engine 5+ | ❌ Not Working | Unreal Engine 5 and newer versions currently incompatible |
 
-## ⚠️ Known Issues
-
-### Right-Click Trigger & Key Bug
-**Status:** In progress (fix being worked on)
-
-When both the **Trigger Key** and the **Holds/Executes keys** are set to right-click (`RButton`), the script produces an error and does not function properly. This is a known limitation that will be addressed in a future update.
-
-**Workaround:** Use a different trigger key or target key combination until this is resolved.
-
 ## 🛠️ System Requirements
 
 * **OS:** Windows 10 / 11
@@ -105,6 +96,16 @@ When both the **Trigger Key** and the **Holds/Executes keys** are set to right-c
 3. **Save Changes:** Click **Apply** to bind your new hotkeys and save state to the current profile.
 
 4. **Panic Hotkey:** Press **`F8`** (default) at any time to instantly suspend/resume all script hotkeys and clear stuck inputs.
+
+## 📋 Pre-Made Profiles
+
+The `profiles/` folder contains several pre-configured profiles to get you started quickly. These profiles showcase different use cases and setups:
+
+* Browse the `profiles/` directory to see all available pre-made profiles
+* Load any profile from the Combo ReMapper UI
+* Customize them further or use them as templates for your own configurations
+
+These profiles demonstrate best practices and common configurations, making it easy to adapt them to your specific needs.
 
 ## 📖 Syntax & Special Tokens Guide
 
