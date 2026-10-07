@@ -69,8 +69,7 @@
 | No More Heroes | ✅ Working | Fully compatible |
 | VRChat | ✅ Working | Fully compatible |
 | My Hero Ultra Rumble | ✅ Working | Fully compatible |
-| Lollipop Chainsaw | ✅ Working | Fully compatible |
-| Lollipop Chainsaw RePop | ❌ Not Working | Currently not compatible |
+| Lollipop Chainsaw RePop | ✅ Working | Fully compatible | 
 
 ## 🛠️ System Requirements
 
