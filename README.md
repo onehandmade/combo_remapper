@@ -46,7 +46,7 @@
 
 ## ⚠️ Anti-Cheat & Game Compatibility
 
-**Important:** Input injection scripts are detected and handled differently by every game's anti-cheat system. Some games explicitly ban for input remapping, even when used for accessibility purposes. Always test in a non-competitive environment first.
+**Important:** Input injection scripts are detected and handled differently by every game's anti-cheat system. Some games explicitly ban for input remapping, even when used for accessibility purposes.
 
 ### Tested Compatible Games
 * **Known Safe:** Many indie games, older titles, and games without anti-cheat
@@ -66,11 +66,21 @@
 | Game/Platform | Status | Notes |
 | --- | --- | --- |
 | PCSX2 Emulator | ✅ Working | Fully compatible |
+| GTA San Andreas | ✅ Working | Fully compatible |
 | No More Heroes | ✅ Working | Fully compatible |
 | VRChat | ✅ Working | Fully compatible |
 | My Hero Ultra Rumble | ✅ Working | Fully compatible |
 | Lollipop Chainsaw RePop | ❌ Not Working | Currently not compatible |
 | Unreal Engine 5+ | ❌ Not Working | Unreal Engine 5 and newer versions currently incompatible |
+
+## ⚠️ Known Issues
+
+### Right-Click Trigger & Key Bug
+**Status:** In progress (fix being worked on)
+
+When both the **Trigger Key** and the **Holds/Executes keys** are set to right-click (`RButton`), the script produces an error and does not function properly. This is a known limitation that will be addressed in a future update.
+
+**Workaround:** Use a different trigger key or target key combination until this is resolved.
 
 ## 🛠️ System Requirements
 
