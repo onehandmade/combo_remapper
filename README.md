@@ -1,10 +1,15 @@
-# Combo ReMapper 9.0
+# Combo ReMapper 9.1
 
-Combo ReMapper is a feature-rich AutoHotkey v2 script for remapping keyboard, mouse, and controller inputs into custom combo sequences, hotkeys, and macros. It is designed for accessibility, game control customization, and rapid input remapping in Windows games and applications.
+Combo ReMapper is a feature-rich AutoHotkey v2 script for remapping keyboard, mouse, and controller inputs into custom combo sequences, hotkeys, and macros. It is designed for accessibility, game control, and low-friction input customization.
 
-Version 9.0 adds a more complete controller engine, improved compatibility modes, safer mouse trigger handling, and better game input behavior while keeping the original combo-based workflow.
+Version 9.1 adds local diagnostics logging, better troubleshooting output, and continued stability improvements while keeping the original combo-based workflow.
 
-## What’s New in 9.0
+## What’s New in 9.1
+
+### Local Diagnostics Log
+- Adds a local `combo_remapper.log` file next to the script for troubleshooting.
+- Records profile loads, safety releases, and unexpected errors without interrupting the script.
+- Includes a tray option to open the log file or copy a short diagnostics snapshot to the clipboard.
 
 ### TglTurbo Mode
 - Adds a hybrid toggle/turbo behavior for rows that need to stay active while also repeating actions continuously.
@@ -72,6 +77,14 @@ This allows users to choose the safest mode for different games and apps.
 - Tray menu and settings management.
 - Theme support with Dark, Light, and custom image backgrounds.
 
+## Local Diagnostics and Privacy Warning
+
+The script can write a local diagnostics log named `combo_remapper.log` in the same folder as the script. This is primarily for troubleshooting unexpected errors, profile changes, and safety resets.
+
+Warning: this log is local-only. It stays on your machine and is not automatically uploaded or sent anywhere. The author cannot access it unless you open the file and send it yourself.
+
+If you need to share a problem, open the log file from the tray menu or copy the diagnostics snapshot and paste it into a support message.
+
 ## Core Features
 
 ### Multi-Input Remapping
@@ -100,7 +113,7 @@ The engine is designed to work well with games that read scan codes or raw input
 - Delay tuning to help modern games register inputs reliably
 
 ### Accessibility-First Design
-The project was built with accessibility use cases in mind, especially for users who need alternative input layouts or reduced finger strain. Features like hold-to-toggle logic, controller macros, and adaptive motion control are part of the design focus.
+The project was built with accessibility use cases in mind, especially for users who need alternative input layouts or reduced finger strain. Features like hold-to-toggle logic, controller macros, and profile switching are designed to make remapping easier and less physically demanding.
 
 ## Anti-Cheat & Game Compatibility
 
@@ -168,7 +181,7 @@ Before using Combo ReMapper with any new game:
 
 ## Files
 
-- `Combo_ReMapper_9_0.ahk` — main script
+- `Combo_ReMapper_9_1.ahk` — main script
 - `profiles/` — saved remap profiles
 - `remapper_global.ini` — global script settings
 
@@ -179,4 +192,4 @@ Before using Combo ReMapper with any new game:
 
 ---
 
-This README reflects the current feature set in the supplied AutoHotkey script, including the newly added TglTurbo mode, controller enable/disable logic, right-click fix, compatibility modes, and advanced controller/mouse behavior.
+This README reflects the current feature set in the supplied AutoHotkey script, including the new local diagnostics logging, TglTurbo mode, controller enable/disable logic, right-click fix, compatibility modes, and advanced controller/mouse behavior.
