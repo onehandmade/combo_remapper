@@ -6,6 +6,21 @@ Combo ReMapper is a remapper for keyboard, mouse and controller input, built for
 
 It is a single AutoHotkey v2 script. It has no installer and no extra files to set up.
 
+> ## ⚠️ AI WARNING — PLEASE READ FIRST
+> 
+> **This software was written with AI.** The code was written by an AI (Claude, made by Anthropic). The author, Dani, had the idea, decided how the program should work, tested it on their own games and directed every change. The AI wrote the code.
+> 
+> We say this openly because many people don't want AI-made software, and that is a fair choice. If you would rather not use an AI project, please don't. There are no hard feelings.
+> 
+> **What that means for you:**
+> 
+> - **It has not been professionally reviewed or audited.** Treat it as a hobby project made for accessibility.
+> - **It can have bugs**, including ones nobody has found yet. Some features were written without being run before release.
+> - **You can read all of it.** It is one plain-text script. Read it, or have someone you trust read it, before you run it.
+> - **Scan it with your own antivirus** like any download. Remapping tools can trigger false alarms.
+> - **No warranty.** Use it at your own risk. Don't use it in online or competitive games, where it can get your account banned.
+> - **If it breaks,** report it. Tray menu -> *Copy diagnostics* gives the details to paste into an issue.
+
 ---
 
 ## Contents
@@ -21,7 +36,7 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 9. [Profiles, pages and the cheat sheet](#profiles-pages-and-the-cheat-sheet)
 10. [The setup wizard](#the-setup-wizard)
 11. [Settings and customization](#settings-and-customization)
-12. [Game compatibility](#game-compatibility)
+12. [Game compatibility](#game-compatibility) (including emulators)
 13. [Default hotkeys](#default-hotkeys)
 14. [Safety](#safety)
 15. [Troubleshooting](#troubleshooting)
@@ -88,7 +103,7 @@ Each row in the main window is:
 When you press the trigger, the program sends the combo to the game. Rows only react while the **Target program** is in front. Leave the target empty (or `(any)`) to react in every window.
 
 | Part | What it is |
-|---|---|
+| --- | --- |
 | **Trigger** | The key or mouse button you press. The **Set** button next to it listens for your next key press and fills it in. |
 | **Combo** | What the program sends, as comma-separated words (see [Combo words](#combo-words)). The **Auto** button records the keys you press into the combo. |
 | **Mode** | How the trigger behaves (see [Modes](#modes)). |
@@ -99,7 +114,7 @@ Right-click a row for more tools: test-fire it, set the repeat interval, insert 
 ## Modes
 
 | Mode | What it does |
-|---|---|
+| --- | --- |
 | **Hold** | Sends the combo while you hold the trigger, and lets go when you release. |
 | **Toggle** | Press once to hold the keys down, press again to let go. |
 | **Press** | One quick press of the combo each time. |
@@ -113,7 +128,7 @@ Right-click a row for more tools: test-fire it, set the repeat interval, insert 
 Separate words with commas.
 
 | Word | Meaning |
-|---|---|
+| --- | --- |
 | `w`, `shift`, `space`, `f5` | Keys by name |
 | `d150` or `150` | Wait 150 milliseconds (a single digit is a real key) |
 | `mlc` `mrc` `mmc` | Left, right and middle click |
@@ -133,7 +148,7 @@ Separate words with commas.
 Copy these into the combo box.
 
 | I want | Combo |
-|---|---|
+| --- | --- |
 | Shift and Space together | `down:lshift,d30,space,d40,up:lshift` |
 | Hold a key for half a second | `down:e,d500,up:e` |
 | Tap a key three times | `e,d60,e,d60,e` |
@@ -158,6 +173,7 @@ Copy these into the combo box.
 **Pages.** Each page is a profile. In **Settings -> Pages...** add profiles in the order you want, then choose a **Next-page key** and an optional **Previous-page key**. After the last page, Next goes back to the first. Held keys are let go on every switch. The status box and cheat sheet show which page you are on, such as "Page 2 of 4".
 
 **Cheat sheet.** Set a cheat-sheet key in the same window (F1 in the ready-made profiles).
+
 - First press: every key of the profile, and of all its pages, with a plain-language note on each.
 - Second press: the same list with the exact combo each key sends.
 - Third press: closes it.
@@ -180,7 +196,7 @@ The **What does everything do?** button explains every question and button, and 
 Open **Settings** from the tray icon.
 
 | Where | What you can change |
-|---|---|
+| --- | --- |
 | **Settings** | Input mode, startup and display options, the scroll-click key and the Y-axis lock key. (The panic key is in the main window.) |
 | **Settings -> Pages...** | Next-page key, previous-page key, the list of pages, and the cheat-sheet key. |
 | **Settings -> Controller...** | Controller type and stick settings. The controller is off by default. |
@@ -200,7 +216,7 @@ Combo ReMapper works by sending input to the game, the same way a keyboard or mo
 Games and programs the author has used it with:
 
 | Game / platform | Status | Notes |
-|---|---|---|
+| --- | --- | --- |
 | PCSX2 emulator | ✅ Working | Fully compatible |
 | GTA San Andreas | ✅ Working | Fully compatible |
 | No More Heroes | ✅ Working | Fully compatible |
@@ -209,6 +225,15 @@ Games and programs the author has used it with:
 | Lollipop Chainsaw RePop | ✅ Working | Fully compatible |
 
 This list comes from the author's own use. Test your own game before you rely on it.
+
+### Emulators and console games
+
+Emulators run on your computer and read the keyboard, mouse and controllers like any other program, so Combo ReMapper can control them in the same way. This is how it is used with PCSX2 (see the list above).
+
+- **Controller layouts.** The program has a **PS4 pad** setting and a starter profile that maps a PS4 pad to keyboard and mouse. Switch it on in **Settings -> Controller...** (it is off by default).
+- **Use the emulator's own controls first.** Most emulators have a built-in key and controller mapping screen. Use Combo ReMapper for what that screen can't do: turn a combo into one key, hold something for you, or repeat fast.
+- **Only the emulators listed above have been tested.** PS4 emulators and other newer emulators haven't been tested yet, so test yours and expect to adjust the **Target program** name and the **input mode**.
+- **Games you own.** Use it only with games and emulators you are allowed to use, and follow the rules of the emulator and the game.
 
 ### Anti-cheat
 
@@ -235,7 +260,7 @@ Before you use it with a new game:
 ## Default hotkeys
 
 | Hotkey | Action |
-|---|---|
+| --- | --- |
 | `F6` | Toggle the Y-axis mouse lock |
 | `F7` | Show or hide the status box |
 | `F8` | Panic: turn the remapper off and on, and let go of every held key |
@@ -255,7 +280,7 @@ You can change all three in Settings. The ready-made left-hand profiles use `F2`
 ## Troubleshooting
 
 | Problem | What to try |
-|---|---|
+| --- | --- |
 | Keys do nothing in the game | Check the **Target program** name in Task Manager, run the program as Administrator, or try another input mode. |
 | A key does nothing at all | Another row, the panic key or another hotkey may already use it. **Check Combos** will tell you. |
 | Timed prompts or short taps are missed | Raise **Extra press time** in Settings. |
@@ -268,7 +293,7 @@ The program writes errors and what fired to `combo_remapper.log` next to the scr
 ## Files the program uses
 
 | File or folder | Purpose |
-|---|---|
+| --- | --- |
 | `Combo_ReMapper_9_2.ahk` | The program. |
 | `profiles\` | One `.ini` file per profile or page. |
 | `remapper_global.ini` | Program-wide settings such as the look, Run as Administrator and logging. |
