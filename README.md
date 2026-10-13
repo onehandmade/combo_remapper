@@ -21,27 +21,32 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 > - **No warranty.** Use it at your own risk. Don't use it in online or competitive games, where it can get your account banned.
 > - **If it breaks,** report it. Tray menu -> *Copy diagnostics* gives the details to paste into an issue.
 
+### Watch the demos
+
+**[Demo playlist on YouTube](https://youtube.com/playlist?list=PLdhGZ74KtEfI)**: videos of the program in use. Watching a demo first is the quickest way to see what it does.
+
 ---
 
 ## Contents
 
-1. [What it does](#what-it-does)
-2. [Who it is for](#who-it-is-for)
-3. [What you need](#what-you-need)
-4. [Quick start](#quick-start)
-5. [How it works](#how-it-works)
-6. [Modes](#modes)
-7. [Combo words](#combo-words)
-8. [Combo recipes](#combo-recipes)
-9. [Profiles, pages and the cheat sheet](#profiles-pages-and-the-cheat-sheet)
-10. [The setup wizard](#the-setup-wizard)
-11. [Settings and customization](#settings-and-customization)
-12. [Game compatibility](#game-compatibility) (including emulators)
-13. [Default hotkeys](#default-hotkeys)
-14. [Safety](#safety)
-15. [Troubleshooting](#troubleshooting)
-16. [Files the program uses](#files-the-program-uses)
-17. [About](#about)
+1. [Demo videos](#watch-the-demos)
+2. [What it does](#what-it-does)
+3. [Who it is for](#who-it-is-for)
+4. [What you need](#what-you-need)
+5. [Quick start](#quick-start)
+6. [How it works](#how-it-works)
+7. [Modes](#modes)
+8. [Combo words](#combo-words)
+9. [Combo recipes](#combo-recipes)
+10. [Profiles, pages and the cheat sheet](#profiles-pages-and-the-cheat-sheet)
+11. [The setup wizard](#the-setup-wizard)
+12. [Settings and customization](#settings-and-customization)
+13. [Game compatibility](#game-compatibility) (including emulators)
+14. [Default hotkeys](#default-hotkeys)
+15. [Safety](#safety)
+16. [Troubleshooting](#troubleshooting)
+17. [Files the program uses](#files-the-program-uses)
+18. [About](#about)
 
 ---
 
