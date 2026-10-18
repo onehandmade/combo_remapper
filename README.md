@@ -233,7 +233,7 @@ Quick time events (timed button prompts) are hard when you need fast, exact pres
 
 - The **panic key** stops a burst at once.
 - The setup wizard can make these rows for you (tick the mash, alternate and hold options).
-- `profiles/qte` has a ready-made profile, `QTE helper (RPCS3 face buttons)`, with the four face buttons on the keys 1 to 4, plus an alternate mash, a hold and two keep-mashing keys. It uses the PlayStation-style layout of V, X, B and C from the RPCS3 emulator; change the letters to match your game.
+- `profiles/` has a ready-made profile, `QTE helper (RPCS3 face buttons)`, with the four face buttons on the keys 1 to 4, plus an alternate mash, a hold and two keep-mashing keys. It uses the PlayStation-style layout of V, X, B and C from the RPCS3 emulator; change the letters to match your game.
 - Burst length and speed are in the combo: change `30` (how many) and `40` (milliseconds apart).
 
 ## Accessibility tools
