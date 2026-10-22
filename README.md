@@ -1,4 +1,4 @@
-# Combo ReMapper 9.3
+# Combo ReMapper 9.4
 
 **Play and work with fewer keys, fewer fingers and less effort.**
 
@@ -86,14 +86,14 @@ The program was written by a handicapped player for exactly this use, and every 
 
 - Windows 10 or 11.
 - [AutoHotkey v2](https://www.autohotkey.com/) (v2 only, not v1).
-- The script `Combo_ReMapper_9_3.ahk`.
+- The script `Combo_ReMapper_9_4.ahk`.
 
 Run it as Administrator (the default) if the game runs as administrator.
 
 ## Quick start
 
 1. Install AutoHotkey v2.
-2. Put `Combo_ReMapper_9_3.ahk` in its own folder and double-click it. A tray icon appears.
+2. Put `Combo_ReMapper_9_4.ahk` in its own folder and double-click it. A tray icon appears.
 3. On first start a welcome window offers the **setup wizard**. Press *Open the wizard*.
 4. Answer the questions: which hand you use, a profile name, which program is the game, which keys the game already uses, and what you want one key to do.
 5. Press **Create profile**, read the summary, and confirm.
@@ -376,7 +376,7 @@ The program writes errors and what fired to `combo_remapper.log` next to the scr
 
 | File or folder | Purpose |
 |---|---|
-| `Combo_ReMapper_9_3.ahk` | The program. |
+| `Combo_ReMapper_9_4.ahk` | The program. |
 | `profiles\` | One `.ini` file per profile or page. |
 | `remapper_global.ini` | Program-wide settings such as the look, Run as Administrator and logging. |
 | `combo_remapper.log` | Errors and what fired. Starts a new file after about 250 KB. |
