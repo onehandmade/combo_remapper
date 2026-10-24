@@ -1,4 +1,4 @@
-# Combo ReMapper 9.4
+# Combo ReMapper 9.5
 
 **Play and work with fewer keys, fewer fingers and less effort.**
 
@@ -18,7 +18,7 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 > - **You can read all of it.** It is one plain-text script. Read it, or have someone you trust read it, before you run it.
 > - **Scan it with your own antivirus** like any download. Remapping tools can trigger false alarms.
 > - **No warranty.** Use it at your own risk. Don't use it in online or competitive games, where it can get your account banned.
-> - **If it breaks,** report it. Tray menu -> *Copy diagnostics* gives the details to paste into an issue.
+> - **If it breaks,** report it. Tray menu -> More -> *Copy diagnostics* gives the details to paste into an issue.
 
 
 ### Watch the demos
@@ -86,20 +86,20 @@ The program was written by a handicapped player for exactly this use, and every 
 
 - Windows 10 or 11.
 - [AutoHotkey v2](https://www.autohotkey.com/) (v2 only, not v1).
-- The script `Combo_ReMapper_9_4.ahk`.
+- The script `Combo_ReMapper_9_5.ahk`.
 
 Run it as Administrator (the default) if the game runs as administrator.
 
 ## Quick start
 
 1. Install AutoHotkey v2.
-2. Put `Combo_ReMapper_9_4.ahk` in its own folder and double-click it. A tray icon appears.
+2. Put `Combo_ReMapper_9_5.ahk` in its own folder and double-click it. A tray icon appears.
 3. On first start a welcome window offers the **setup wizard**. Press *Open the wizard*.
 4. Answer the questions: which hand you use, a profile name, which program is the game, which keys the game already uses, and what you want one key to do.
 5. Press **Create profile**, read the summary, and confirm.
 6. Start the game, press **F1** to see your keys, and play. **F2** (left hand) or **F8** (right hand) turns everything off and on.
 
-To use a ready-made profile, copy its `.ini` file into the `profiles` folder next to the script, then pick it in the main window or from **tray icon -> Switch Profile**.
+To use a ready-made profile, copy its `.ini` file into the `profiles` folder next to the script, then pick it in the main window or from **tray icon -> Switch profile**.
 
 ## How it works
 
@@ -212,7 +212,7 @@ Open **Settings** from the tray icon.
 | **Settings -> Pages...** | Next-page key, previous-page key, the list of pages, and the cheat-sheet key. |
 | **Settings -> Controller...** | Controller type and stick settings. The controller is off by default. |
 | **Settings -> Accessibility tools...** | Window key, tremor filter, keyboard mouse and one-button control (see [Accessibility tools](#accessibility-tools)). |
-| **Settings -> Customize...** | Status box: text size, see-through level, background color. Cheat sheet: text size, how long it stays up, colors, position. |
+| **Settings -> Customize...** | Status box: text size, see-through level, background color, and whether it shows the row's name when a row fires (and for how long). Cheat sheet: text size, how long it stays up, colors, position. |
 | **Advanced Settings** | Key and mouse timing, **Auto-detect (sec)** (how long Auto, Set and Bind listen, 3 to 120), "let go of everything when the game loses focus", Run as Administrator, writing the log file, and colors and theme. |
 
 Input modes (**Game**, **Classic**, **Hybrid**) change how keys are sent. If a game ignores the keys, try another mode (also in the tray menu).
@@ -233,7 +233,7 @@ Quick time events (timed button prompts) are hard when you need fast, exact pres
 
 - The **panic key** stops a burst at once.
 - The setup wizard can make these rows for you (tick the mash, alternate and hold options).
-- `profiles/` has a ready-made profile, `QTE helper (RPCS3 face buttons)`, with the four face buttons on the keys 1 to 4, plus an alternate mash, a hold and two keep-mashing keys. It uses the PlayStation-style layout of V, X, B and C from the RPCS3 emulator; change the letters to match your game.
+- A ready-made profile, `QTE helper (RPCS3 face buttons)`, comes with the program: the four face buttons on the keys 1 to 4, plus an alternate mash, a hold and two keep-mashing keys. Copy its `.ini` file into the `profiles` folder. It uses the PlayStation-style layout of V, X, B and C from the RPCS3 emulator; change the letters to match your game.
 - Burst length and speed are in the combo: change `30` (how many) and `40` (milliseconds apart).
 
 ## Accessibility tools
@@ -261,7 +261,7 @@ It does not apply to **DblTap** rows, because those need two quick presses.
 
 ### Keyboard mouse
 
-Moves the cursor and clicks with the keyboard, for when using a mouse is hard. Turn it on and off with its own key (default `F11`) or the tray menu item **Keyboard mouse on/off**.
+Moves the cursor and clicks with the keyboard, for when using a mouse is hard. Turn it on and off with its own key (default `F11`) or the tray menu item **More -> Keyboard mouse on / off**.
 
 | Action | Default key |
 |---|---|
@@ -287,7 +287,7 @@ It works best with **Press**, **Toggle** and **TglTurbo** rows. The list shows e
 
 ### Row notes
 
-Right-click a row and choose **Edit Row Note...** to give it a plain-language name, such as "Walk forward". Notes appear in the cheat sheet and in one-button control. Press **Apply** to save the profile.
+Right-click a row and choose **Edit Row Note...** to give it a plain-language name, such as "Walk forward". Notes appear in the cheat sheet, in one-button control and in the status box: when a row fires, the status box flashes its note (with ON or OFF for toggles and auto-repeats). A row without a note shows the usual message, such as the key and what it sends. You can switch that off or change how long it shows in **Settings -> Customize...**. Press **Apply** to save the profile.
 
 ## Game compatibility
 
@@ -334,7 +334,7 @@ Before you use it with a new game:
 
 ### If a game ignores the keys
 
-- Try another **input mode** (Game, Classic or Hybrid) in Settings or the tray menu.
+- Try another **input mode** (Game, Classic or Hybrid) in Settings or the tray menu (More -> Input mode).
 - Run the program as **Administrator** if the game or emulator runs as administrator.
 - Raise **Extra press time** in Settings if short taps are missed.
 - Check that the **Target program** name is the game's real program name.
@@ -356,30 +356,33 @@ You can change all three in Settings. The ready-made left-hand profiles use `F2`
 - **Panic key.** Turns the whole remapper off and on at once and lets go of every held key. Default F8, and F2 in the ready-made left-hand profiles. It can't be left blank.
 - **Focus-loss release.** When you switch away from the game (Alt+Tab, crash, minimize), held keys, toggles and auto-repeats are stopped so nothing stays stuck. This needs a Target program, and you can switch it off in Advanced Settings.
 - **Exit.** Closing the program lets go of every key it was holding.
-- **Check Combos** (tray menu) looks for typos and mistakes in your rows.
+- **Check combos** (tray menu, More) looks for typos and mistakes in your rows.
 - **Single-player use.** Don't use it in online or competitive games.
 
 ## Troubleshooting
 
 | Problem | What to try |
 |---|---|
+| The program does nothing, or only shows a tray icon (often on another computer) | 1. Make sure it is **AutoHotkey v2** (not v1) and that the script is in a normal folder, not inside a zip. 2. Accept the Windows prompt (UAC) when it asks for administrator rights; if you can't, start it with `/noadmin` or set `RunAsAdmin=0` in `remapper_global.ini`. 3. If a *startup problem* window appears, send its text. 4. Check that your antivirus has not blocked it. |
 | Keys do nothing in the game | Check the **Target program** name in Task Manager, run the program as Administrator, or try another input mode. |
 | A key does nothing at all | Another row, the panic key or another hotkey may already use it. **Check Combos** will tell you. |
 | Timed prompts or short taps are missed | Raise **Extra press time** in Settings. |
 | A held key got stuck | Press the panic key. |
 | The wizard doesn't appear | Open it from the tray menu. It stops appearing at start after you press **Don't ask again**. |
-| Something broke | Tray menu -> **Copy diagnostics**, then paste the result when you ask for help. |
+| Something broke | Tray menu -> More -> **Copy diagnostics**, then paste the result when you ask for help. |
 
-The program writes errors and what fired to `combo_remapper.log` next to the script (switch this on or off in Advanced Settings). Tray menu -> **Open log file** shows it.
+The program writes errors and what fired to `combo_remapper.log` next to the script (switch this on or off in Advanced Settings). Tray menu -> More -> **Open log file** shows it.
 
 ## Files the program uses
 
 | File or folder | Purpose |
 |---|---|
-| `Combo_ReMapper_9_4.ahk` | The program. |
+| `Combo_ReMapper_9_5.ahk` | The program. |
 | `profiles\` | One `.ini` file per profile or page. |
 | `remapper_global.ini` | Program-wide settings such as the look, Run as Administrator and logging. |
 | `combo_remapper.log` | Errors and what fired. Starts a new file after about 250 KB. |
+
+If the script's own folder can't be written to (for example Program Files, or a protected folder), the program keeps these files in `%AppData%\ComboReMapper` instead and copies your existing profiles there.
 
 ## About
 
