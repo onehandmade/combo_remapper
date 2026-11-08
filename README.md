@@ -110,6 +110,7 @@ To use a ready-made profile, copy its `.ini` file into the `profiles` folder nex
 
 To use the program in Hungarian, see [Languages](#languages).
 
+
 ## How it works
 
 Each row in the main window is:
@@ -408,6 +409,7 @@ The program writes errors and what fired to `combo_remapper.log` next to the scr
 | `combo_remapper.log` | Errors and what fired. Starts a new file after about 250 KB. |
 
 If the script's own folder can't be written to (for example Program Files, or a protected folder), the program keeps these files in `%AppData%\ComboReMapper` instead and copies your existing profiles there.
+
 
 ## Hidden themes
 
