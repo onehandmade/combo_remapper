@@ -392,6 +392,7 @@ You can change all three in Settings. The ready-made left-hand profiles use `F2`
 | Timed prompts or short taps are missed | Raise **Extra press time** in Settings. |
 | A held key got stuck | Press the panic key. |
 | A normal left click opens links in a new tab (for example in Chrome) | A Ctrl, Shift or middle button is probably stuck. Press the panic key. Since version 9.6 the program also lets go of stuck modifiers by itself after a moment. If it still happens, use tray menu -> More -> **Copy diagnostics** while it is happening and paste the result in an issue. |
+| The program does not start with Windows | Tick **Auto-Start with Windows Startup** in Settings (it applies at once and tells you which way it was set). Then open tray menu -> More -> **Open log file** and look for lines that start with "Auto-start:". After a restart the log should contain "started by Windows auto-start". You can also open Task Scheduler and look for `ComboReMapper_AutoStart`. If the log says the scheduled task could not be created, send those lines in an issue. |
 | The wizard doesn't appear | Open it from the tray menu. It stops appearing at start after you press **Don't ask again**. |
 | The program is in the wrong language | Pick the language in Settings or the tray menu. |
 | Something broke | Tray menu -> More -> **Copy diagnostics**, then paste the result when you ask for help. |
@@ -430,7 +431,7 @@ While a cyber theme is on, the status box reads *CYBER MODE: ON* or *CYBER MODE:
 - **Fixed:** the on/off switch. Turning the remapper off (panic key, Apply, losing focus) could stop halfway and leave the status box on ACTIVE and keys held. It now always finishes.
 - **Fixed:** a startup error ("Parameter #1 invalid") when the `profiles` folder had other profiles but no `default` one, for example after moving the program to a new folder. It now opens the first profile it finds.
 - **Fixed:** the setup wizard's confirmation window opened behind the wizard and could not be reached. All dialogs now appear in front.
-- **Fixed:** **Auto-Start with Windows Startup** did not work reliably. It now starts AutoHotkey with the script explicitly, uses a scheduled task (no UAC prompt at each start) when the program runs as administrator, and tells you what it did.
+- **Fixed:** **Auto-Start with Windows Startup** did not work reliably. When the program runs as administrator it now makes a scheduled task (named `ComboReMapper_AutoStart`) that starts it at logon with the highest rights, no UAC prompt, and without the default limits that stop a plain task (not on battery, stop after 3 days). If that is not possible it uses a normal start-up entry. The program tells you which one it used, and the log says "started by Windows auto-start" after a start at logon.
 - **New:** the status box lists every running toggle and turbo, and **Settings -> Customize...** has a check box to turn that list off.
 - **New:** the two hidden themes are now **Cyber Red** and **Cyber Yellow**, and the status box says *CYBER MODE* while one is on.
 - **New:** **Add language file...** adds one or several `.po` translation files at once.
@@ -842,6 +843,7 @@ Mindhármat megváltoztathatod a Beállításokban. A kész balkezes profilok az
 | Az időzített kérések vagy a rövid koppintások kimaradnak | Növeld az **Extra leütési időt** a Beállításokban. |
 | Egy lenyomva tartott billentyű beragadt | Nyomd meg a vészleállító billentyűt. |
 | Egy sima bal kattintás új lapon nyit meg hivatkozásokat (például Chrome-ban) | Valószínűleg beragadt egy Ctrl, Shift vagy a középső gomb. Nyomd meg a vészleállító billentyűt. A 9.6-os verzió óta a program magától is elengedi a beragadt módosítókat egy pillanat után. Ha mégis előfordul, használd a tálcamenü -> Több -> **Diagnosztika másolása** pontot, amíg történik, és illeszd be az eredményt egy hibajelentésbe. |
+| A program nem indul el a Windowsszal | Pipáld be a Beállításokban az **Automatikus indítás a Windows indításakor** jelölőnégyzetet (azonnal érvényesül, és megmondja, hogyan állította be). Utána nyisd meg a tálcamenü -> Több -> **Naplófájl megnyitása** pontot, és keresd az „Auto-start:” kezdetű sorokat. Újraindítás után a naplóban szerepelnie kell a „started by Windows auto-start” szövegnek. A Feladatütemezőben is megnézheted a `ComboReMapper_AutoStart` feladatot. Ha a napló szerint az ütemezett feladat nem hozható létre, küldd el ezeket a sorokat egy hibajelentésben. |
 | A varázsló nem jelenik meg | Nyisd meg a tálcamenüből. A **Ne kérdezd újra** gomb megnyomása után nem jelenik meg indításkor. |
 | A program rossz nyelven van | Válaszd ki a nyelvet a Beállításokban vagy a tálcamenüben. |
 | Valami elromlott | Tálcamenü -> Több -> **Diagnosztika másolása**, majd illeszd be az eredményt, amikor segítséget kérsz. |
@@ -880,7 +882,7 @@ Amíg valamelyik kiber téma be van kapcsolva, az állapotdoboz a téma színeiv
 - **Javítva:** a ki- és bekapcsolás. A remapper kikapcsolása (vészleállító billentyű, Alkalmaz, fókuszvesztés) félúton megállhatott, és az állapotdoboz ACTIVE-on, a billentyűk lenyomva maradhattak. Mostantól mindig végigfut.
 - **Javítva:** indítási hiba („Parameter #1 invalid”), ha a `profiles` mappában voltak más profilok, de `default` nem, például a program új mappába költöztetése után. Mostantól az első megtalált profilt nyitja meg.
 - **Javítva:** a beállítási varázsló megerősítő ablaka a varázsló mögé került, és nem lehetett elérni. Minden párbeszédablak most elöl jelenik meg.
-- **Javítva:** az **Automatikus indítás a Windows indításakor** nem működött megbízhatóan. Mostantól kifejezetten az AutoHotkey-jal indítja a szkriptet, rendszergazdai futásnál ütemezett feladatot használ (nincs UAC-kérdés minden indításkor), és megmondja, mit csinált.
+- **Javítva:** az **Automatikus indítás a Windows indításakor** nem működött megbízhatóan. Rendszergazdai futásnál most ütemezett feladatot készít (neve `ComboReMapper_AutoStart`), amely bejelentkezéskor, a legmagasabb jogokkal, UAC-kérdés nélkül indítja a programot, és az alapértelmezett korlátozások (akkumulátoron nem indul, 3 nap után leáll) nélkül. Ha ez nem lehetséges, normál indítási bejegyzést használ. A program megmondja, melyiket használta, és a napló a bejelentkezéskori indítás után azt írja: „started by Windows auto-start”.
 - **Új:** az állapotdoboz felsorolja az összes futó kapcsolót és turbót, a **Beállítások -> Testreszabás...** ablakban pedig egy jelölőnégyzettel kikapcsolhatod ezt a listát.
 - **Új:** a két rejtett téma neve most **Cyber Red** és **Cyber Yellow**, és az állapotdoboz *KIBER MÓD* feliratot mutat, amíg valamelyik be van kapcsolva.
 - **Új:** a **Nyelvfájl hozzáadása...** egyszerre egy vagy több `.po` fordítási fájlt ad hozzá.
