@@ -1,4 +1,4 @@
-# Combo ReMapper 9.6
+# Combo ReMapper 9.7
 
 **Play and work with fewer keys, fewer fingers and less effort.**
 
@@ -24,7 +24,7 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 >
 > Combo ReMapper has two hidden colour themes, **Cyber Red** and **Cyber Yellow**. This is just a fun project. It is **not affiliated with, sponsored by or endorsed by any company or brand**. See [Hidden themes](#hidden-themes).
 
-**Language / Nyelv:** English (this part) | [Magyar](#combo-remapper-96--magyar)
+**Language / Nyelv:** English (this part) | [Magyar](#combo-remapper-97--magyar)
 
 ### Watch the demos
 
@@ -55,7 +55,8 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 19. [Troubleshooting](#troubleshooting)
 20. [Files the program uses](#files-the-program-uses)
 21. [Hidden themes](#hidden-themes)
-22. [About](#about)
+22. [What's new in 9.7](#whats-new-in-97)
+23. [About](#about)
 
 ---
 
@@ -93,14 +94,14 @@ The program was written by a handicapped player for exactly this use, and every 
 
 - Windows 10 or 11.
 - [AutoHotkey v2](https://www.autohotkey.com/) (v2 only, not v1).
-- The script `Combo_ReMapper_9_6.ahk`.
+- The script `Combo_ReMapper_9_7.ahk`.
 
 Run it as Administrator (the default) if the game runs as administrator.
 
 ## Quick start
 
 1. Install AutoHotkey v2.
-2. Put `Combo_ReMapper_9_6.ahk` in its own folder and double-click it. A tray icon appears.
+2. Put `Combo_ReMapper_9_7.ahk` in its own folder and double-click it. A tray icon appears.
 3. On first start a welcome window offers the **setup wizard**. Press *Open the wizard*.
 4. Answer the questions: which hand you use, a profile name, which program is the game, which keys the game already uses, and what you want one key to do.
 5. Press **Create profile**, read the summary, and confirm.
@@ -109,7 +110,6 @@ Run it as Administrator (the default) if the game runs as administrator.
 To use a ready-made profile, copy its `.ini` file into the `profiles` folder next to the script, then pick it in the main window or from **tray icon -> Switch profile**.
 
 To use the program in Hungarian, see [Languages](#languages).
-
 
 ## How it works
 
@@ -218,7 +218,7 @@ Open **Settings** from the tray icon.
 
 | Where | What you can change |
 |---|---|
-| **Settings** | Input mode, language, startup and display options, the scroll-click key and the Y-axis lock key. (The panic key is in the main window.) |
+| **Settings** | Input mode, language, startup (**Auto-Start with Windows Startup** applies at once and starts the program at logon, with administrator rights and no UAC prompt when it can) and display options, the scroll-click key and the Y-axis lock key. (The panic key is in the main window.) |
 | **Settings -> Pages...** | Next-page key, previous-page key, the list of pages, and the cheat-sheet key. |
 | **Settings -> Controller...** | Controller type and stick settings. The controller is off by default. |
 | **Settings -> Accessibility tools...** | Window key, tremor filter, keyboard mouse and one-button control (see [Accessibility tools](#accessibility-tools)). |
@@ -369,7 +369,7 @@ Before you use it with a new game:
 
 You can change all three in Settings. The ready-made left-hand profiles use `F2` for panic and `F1` for the cheat sheet.
 
-**The status box** (F7 shows or hides it) shows *REMAPPER: ACTIVE* or *REMAPPER: DISABLED*. Under that line it lists everything that is running by itself, one line each: a dot (●) for a Toggle row that is on, and a double arrow (») for a Turbo or TglTurbo row that is repeating. Each line shows the row's note, or the key and what it sends if it has no note. When a row fires, the box also flashes its name for a moment.
+**The status box** (F7 shows or hides it) shows *REMAPPER: ACTIVE* or *REMAPPER: DISABLED*. Under that line it lists everything that is running by itself, one line each: a dot (●) for a Toggle row that is on, and a double arrow (») for a Turbo or TglTurbo row that is repeating. Each line shows the row's note, or the key and what it sends if it has no note. When a row fires, the box also flashes its name for a moment. You can switch the list off in **Settings -> Customize...** (*List running toggles and turbos in the status box*).
 
 ---
 
@@ -391,7 +391,7 @@ You can change all three in Settings. The ready-made left-hand profiles use `F2`
 | A key does nothing at all | Another row, the panic key or another hotkey may already use it. **Check Combos** will tell you. |
 | Timed prompts or short taps are missed | Raise **Extra press time** in Settings. |
 | A held key got stuck | Press the panic key. |
-| A normal left click opens links in a new tab (for example in Chrome) | A Ctrl, Shift or middle button is probably stuck. Press the panic key. Version 9.6 also lets go of stuck modifiers by itself after a moment. If it still happens, use tray menu -> More -> **Copy diagnostics** while it is happening and paste the result in an issue. |
+| A normal left click opens links in a new tab (for example in Chrome) | A Ctrl, Shift or middle button is probably stuck. Press the panic key. Since version 9.6 the program also lets go of stuck modifiers by itself after a moment. If it still happens, use tray menu -> More -> **Copy diagnostics** while it is happening and paste the result in an issue. |
 | The wizard doesn't appear | Open it from the tray menu. It stops appearing at start after you press **Don't ask again**. |
 | The program is in the wrong language | Pick the language in Settings or the tray menu. |
 | Something broke | Tray menu -> More -> **Copy diagnostics**, then paste the result when you ask for help. |
@@ -402,14 +402,13 @@ The program writes errors and what fired to `combo_remapper.log` next to the scr
 
 | File or folder | Purpose |
 |---|---|
-| `Combo_ReMapper_9_6.ahk` | The program. |
+| `Combo_ReMapper_9_7.ahk` | The program. |
 | `profiles\` | One `.ini` file per profile or page. |
 | `lang\` | Extra languages as `.po` files, and the exported template. |
 | `remapper_global.ini` | Program-wide settings such as the language, the look, Run as Administrator and logging. |
 | `combo_remapper.log` | Errors and what fired. Starts a new file after about 250 KB. |
 
 If the script's own folder can't be written to (for example Program Files, or a protected folder), the program keeps these files in `%AppData%\ComboReMapper` instead and copies your existing profiles there.
-
 
 ## Hidden themes
 
@@ -426,6 +425,17 @@ While a cyber theme is on, the status box reads *CYBER MODE: ON* or *CYBER MODE:
 
 > **Just a fun project.** The themes are not affiliated with, sponsored by or endorsed by any company or brand.
 
+## What's new in 9.7
+
+- **Fixed:** the on/off switch. Turning the remapper off (panic key, Apply, losing focus) could stop halfway and leave the status box on ACTIVE and keys held. It now always finishes.
+- **Fixed:** a startup error ("Parameter #1 invalid") when the `profiles` folder had other profiles but no `default` one, for example after moving the program to a new folder. It now opens the first profile it finds.
+- **Fixed:** the setup wizard's confirmation window opened behind the wizard and could not be reached. All dialogs now appear in front.
+- **Fixed:** **Auto-Start with Windows Startup** did not work reliably. It now starts AutoHotkey with the script explicitly, uses a scheduled task (no UAC prompt at each start) when the program runs as administrator, and tells you what it did.
+- **New:** the status box lists every running toggle and turbo, and **Settings -> Customize...** has a check box to turn that list off.
+- **New:** the two hidden themes are now **Cyber Red** and **Cyber Yellow**, and the status box says *CYBER MODE* while one is on.
+- **New:** **Add language file...** adds one or several `.po` translation files at once.
+- **Translation:** every text in the program is now in the Hungarian file and in the exported template.
+
 ## About
 
 Made by **Dani**.
@@ -436,7 +446,7 @@ This program was written with the help of AI (Claude, made by Anthropic). Dani c
 
 ---
 
-# Combo ReMapper 9.6 – Magyar
+# Combo ReMapper 9.7 – Magyar
 
 **Játssz és dolgozz kevesebb billentyűvel, kevesebb ujjal és kevesebb erőfeszítéssel.**
 
@@ -462,7 +472,7 @@ Egyetlen AutoHotkey v2 szkript. Nincs telepítője, és semmilyen további fájl
 >
 > A Combo ReMapper-ben két rejtett színtéma van, a **Cyber Red** és a **Cyber Yellow**. Ez csak egy szórakoztató projekt. **Semmilyen céggel vagy márkával nem áll kapcsolatban, egyikük sem szponzorálja vagy támogatja.** Lásd: [Rejtett témák](#rejtett-témák).
 
-**Language / Nyelv:** [English](#combo-remapper-96) | Magyar (ez a rész)
+**Language / Nyelv:** [English](#combo-remapper-97) | Magyar (ez a rész)
 
 ### Nézd meg a bemutatókat
 
@@ -493,7 +503,8 @@ Egyetlen AutoHotkey v2 szkript. Nincs telepítője, és semmilyen további fájl
 19. [Hibaelhárítás](#hibaelhárítás)
 20. [A program által használt fájlok](#a-program-által-használt-fájlok)
 21. [Rejtett témák](#rejtett-témák)
-22. [Névjegy](#névjegy)
+22. [Újdonságok a 9.7-ben](#újdonságok-a-97-ben)
+23. [Névjegy](#névjegy)
 
 ---
 
@@ -531,14 +542,14 @@ A programot egy mozgássérült játékos írta pontosan erre a célra, és mind
 
 - Windows 10 vagy 11.
 - [AutoHotkey v2](https://www.autohotkey.com/) (csak v2, a v1 nem jó).
-- A `Combo_ReMapper_9_6.ahk` szkript.
+- A `Combo_ReMapper_9_7.ahk` szkript.
 
 Futtasd rendszergazdaként (ez az alapértelmezés), ha a játék rendszergazdaként fut.
 
 ## Gyors kezdés
 
 1. Telepítsd az AutoHotkey v2-t.
-2. Tedd a `Combo_ReMapper_9_6.ahk` fájlt egy saját mappába, és kattints rá duplán. Megjelenik egy tálcaikon.
+2. Tedd a `Combo_ReMapper_9_7.ahk` fájlt egy saját mappába, és kattints rá duplán. Megjelenik egy tálcaikon.
 3. Az első indításkor egy üdvözlőablak felajánlja a **beállítási varázslót**. Nyomd meg a *Varázsló megnyitása* gombot.
 4. Válaszolj a kérdésekre: melyik kezedet használod, mi legyen a profil neve, melyik program a játék, mely billentyűket használja már a játék, és mit szeretnél, hogy egy billentyű csináljon.
 5. Nyomd meg a **Profil létrehozása** gombot, olvasd el az összefoglalót, és erősítsd meg.
@@ -657,7 +668,7 @@ Nyisd meg a **Beállításokat** a tálcaikonról.
 
 | Hol | Mit változtathatsz |
 |---|---|
-| **Beállítások** | Bemeneti mód, nyelv, indítási és megjelenítési beállítások, a görgetéskattintás-billentyű és az Y-tengely zárolás billentyűje. (A vészleállító billentyű a főablakban van.) |
+| **Beállítások** | Bemeneti mód, nyelv, indítás (az **Automatikus indítás a Windows indításakor** azonnal érvényesül, és ha lehet, rendszergazdai joggal, UAC-kérdés nélkül indítja a programot bejelentkezéskor) és megjelenítési beállítások, a görgetéskattintás-billentyű és az Y-tengely zárolás billentyűje. (A vészleállító billentyű a főablakban van.) |
 | **Beállítások -> Lapok...** | Következő lap billentyű, előző lap billentyű, a lapok listája és a puskalap-billentyű. |
 | **Beállítások -> Kontroller...** | Kontrollertípus és karbeállítások. A kontroller alapból ki van kapcsolva. |
 | **Beállítások -> Kisegítő eszközök...** | Ablakbillentyű, remegésszűrő, billentyűzetes egér és egygombos vezérlés (lásd: [Kisegítő eszközök](#kisegítő-eszközök)). |
@@ -808,7 +819,7 @@ Mielőtt új játékkal használod:
 
 Mindhármat megváltoztathatod a Beállításokban. A kész balkezes profilok az `F2`-t használják vészleállításra és az `F1`-et a puskalaphoz.
 
-**Az állapotdoboz** (az F7 megjeleníti vagy elrejti) a *REMAPPER: ACTIVE* vagy *REMAPPER: DISABLED* feliratot mutatja. Alatta soronként felsorol mindent, ami magától fut: pontot (●) a bekapcsolt Toggle sorokhoz, és dupla nyilat (») az ismétlődő Turbo vagy TglTurbo sorokhoz. Minden sor a sor megjegyzését mutatja, vagy a billentyűt és azt, hogy mit küld, ha nincs megjegyzése. Amikor egy sor lefut, a doboz egy pillanatra a nevét is felvillantja.
+**Az állapotdoboz** (az F7 megjeleníti vagy elrejti) a *REMAPPER: ACTIVE* vagy *REMAPPER: DISABLED* feliratot mutatja. Alatta soronként felsorol mindent, ami magától fut: pontot (●) a bekapcsolt Toggle sorokhoz, és dupla nyilat (») az ismétlődő Turbo vagy TglTurbo sorokhoz. Minden sor a sor megjegyzését mutatja, vagy a billentyűt és azt, hogy mit küld, ha nincs megjegyzése. Amikor egy sor lefut, a doboz egy pillanatra a nevét is felvillantja. A listát kikapcsolhatod a **Beállítások -> Testreszabás...** ablakban (*Az állapotdobozban listázza a futó kapcsolókat és turbókat*).
 
 ---
 
@@ -830,7 +841,7 @@ Mindhármat megváltoztathatod a Beállításokban. A kész balkezes profilok az
 | Egy billentyű egyáltalán nem csinál semmit | Lehet, hogy egy másik sor, a vészleállító billentyű vagy egy másik gyorsbillentyű már használja. A **Kombók ellenőrzése** megmondja. |
 | Az időzített kérések vagy a rövid koppintások kimaradnak | Növeld az **Extra leütési időt** a Beállításokban. |
 | Egy lenyomva tartott billentyű beragadt | Nyomd meg a vészleállító billentyűt. |
-| Egy sima bal kattintás új lapon nyit meg hivatkozásokat (például Chrome-ban) | Valószínűleg beragadt egy Ctrl, Shift vagy a középső gomb. Nyomd meg a vészleállító billentyűt. A 9.6-os verzió magától is elengedi a beragadt módosítókat egy pillanat után. Ha mégis előfordul, használd a tálcamenü -> Több -> **Diagnosztika másolása** pontot, amíg történik, és illeszd be az eredményt egy hibajelentésbe. |
+| Egy sima bal kattintás új lapon nyit meg hivatkozásokat (például Chrome-ban) | Valószínűleg beragadt egy Ctrl, Shift vagy a középső gomb. Nyomd meg a vészleállító billentyűt. A 9.6-os verzió óta a program magától is elengedi a beragadt módosítókat egy pillanat után. Ha mégis előfordul, használd a tálcamenü -> Több -> **Diagnosztika másolása** pontot, amíg történik, és illeszd be az eredményt egy hibajelentésbe. |
 | A varázsló nem jelenik meg | Nyisd meg a tálcamenüből. A **Ne kérdezd újra** gomb megnyomása után nem jelenik meg indításkor. |
 | A program rossz nyelven van | Válaszd ki a nyelvet a Beállításokban vagy a tálcamenüben. |
 | Valami elromlott | Tálcamenü -> Több -> **Diagnosztika másolása**, majd illeszd be az eredményt, amikor segítséget kérsz. |
@@ -841,7 +852,7 @@ A program a hibákat és azt, hogy mi futott le, a szkript melletti `combo_remap
 
 | Fájl vagy mappa | Cél |
 |---|---|
-| `Combo_ReMapper_9_6.ahk` | A program. |
+| `Combo_ReMapper_9_7.ahk` | A program. |
 | `profiles\` | Profilonként vagy lapként egy `.ini` fájl. |
 | `lang\` | További nyelvek `.po` fájlként, és az exportált sablon. |
 | `remapper_global.ini` | Az egész programra érvényes beállítások, például a nyelv, a megjelenés, a Futtatás rendszergazdaként és a naplózás. |
@@ -863,6 +874,17 @@ A Combo ReMapper-ben két titkos színtéma van. Mindegyiket egy kis képernyőn
 Amíg valamelyik kiber téma be van kapcsolva, az állapotdoboz a téma színeivel *KIBER MÓD: BE* vagy *KIBER MÓD: KI* feliratot mutat, a feliratok pedig néhány másodpercenként egy pillanatra felvillannak.
 
 > **Ez csak egy szórakoztató projekt.** A témák semmilyen céggel vagy márkával nem állnak kapcsolatban, egyikük sem szponzorálja vagy támogatja őket.
+
+## Újdonságok a 9.7-ben
+
+- **Javítva:** a ki- és bekapcsolás. A remapper kikapcsolása (vészleállító billentyű, Alkalmaz, fókuszvesztés) félúton megállhatott, és az állapotdoboz ACTIVE-on, a billentyűk lenyomva maradhattak. Mostantól mindig végigfut.
+- **Javítva:** indítási hiba („Parameter #1 invalid”), ha a `profiles` mappában voltak más profilok, de `default` nem, például a program új mappába költöztetése után. Mostantól az első megtalált profilt nyitja meg.
+- **Javítva:** a beállítási varázsló megerősítő ablaka a varázsló mögé került, és nem lehetett elérni. Minden párbeszédablak most elöl jelenik meg.
+- **Javítva:** az **Automatikus indítás a Windows indításakor** nem működött megbízhatóan. Mostantól kifejezetten az AutoHotkey-jal indítja a szkriptet, rendszergazdai futásnál ütemezett feladatot használ (nincs UAC-kérdés minden indításkor), és megmondja, mit csinált.
+- **Új:** az állapotdoboz felsorolja az összes futó kapcsolót és turbót, a **Beállítások -> Testreszabás...** ablakban pedig egy jelölőnégyzettel kikapcsolhatod ezt a listát.
+- **Új:** a két rejtett téma neve most **Cyber Red** és **Cyber Yellow**, és az állapotdoboz *KIBER MÓD* feliratot mutat, amíg valamelyik be van kapcsolva.
+- **Új:** a **Nyelvfájl hozzáadása...** egyszerre egy vagy több `.po` fordítási fájlt ad hozzá.
+- **Fordítás:** a program minden szövege szerepel a magyar fájlban és a kiexportált sablonban.
 
 ## Névjegy
 
