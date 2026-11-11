@@ -103,17 +103,20 @@ global compatMode := 1   ; 1 = Game, 2 = Classic, 3 = Hybrid (see CompatModeName
 LangLoad()
 
 global elevatedAlready := false
+global startedByAutoStart := false
 for argText in A_Args {
     if (argText = "/elevated" || argText = "/noadmin")
         elevatedAlready := true
+    if (argText = "/autostart")
+        startedByAutoStart := true
 }
 if (runAsAdmin && !A_IsAdmin && !elevatedAlready) {
     relaunched := false
     try {
         if A_IsCompiled
-            Run('*RunAs "' A_ScriptFullPath '" /elevated')
+            Run('*RunAs "' A_ScriptFullPath '" /elevated' . (startedByAutoStart ? ' /autostart' : ''))
         else
-            Run('*RunAs "' A_AhkPath '" "' A_ScriptFullPath '" /elevated')
+            Run('*RunAs "' A_AhkPath '" "' A_ScriptFullPath '" /elevated' . (startedByAutoStart ? ' /autostart' : ''))
         relaunched := true
     }
     if (relaunched)
@@ -1857,31 +1860,84 @@ RegisterYLockHotkey() {
 ; ============================================================
 ; ---- Registry Helper for Auto-Start ----
 ; ============================================================
+; Runs schtasks.exe and returns its exit code; its text output goes into the "out" variable.
+SchTasksRun(args, &out) {
+    tmp := A_Temp "\ComboReMapper_schtasks.txt"
+    try FileDelete(tmp)
+    rc := -1
+    try rc := RunWait(A_ComSpec ' /c schtasks.exe ' . args . ' > "' . tmp . '" 2>&1', , "Hide")
+    out := ""
+    try out := Trim(FileRead(tmp))
+    try FileDelete(tmp)
+    return rc
+}
+
+XmlEsc(text) {
+    text := StrReplace(text, "&", "&amp;")
+    text := StrReplace(text, "<", "&lt;")
+    text := StrReplace(text, ">", "&gt;")
+    return text
+}
+
 SetAutoStart(enable := true) {
     regKey := "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run"
     appName := "AHK_ComboRemapper"
     taskName := "ComboReMapper_AutoStart"
+    out := ""
     if (!enable) {
         try RegDelete(regKey, appName)
-        try RunWait('schtasks.exe /Delete /TN "' . taskName . '" /F', , "Hide")
+        SchTasksRun('/Delete /TN "' . taskName . '" /F', &out)
         return "off"
     }
-    exePart := A_IsCompiled ? '"' . A_ScriptFullPath . '"' : '"' . A_AhkPath . '" "' . A_ScriptFullPath . '"'
-    ; 1) a scheduled task that starts at logon with the highest rights: no UAC prompt at every start
+    if (A_IsCompiled) {
+        exeFile := A_ScriptFullPath
+        exeArgs := "/autostart"
+    } else {
+        exeFile := A_AhkPath
+        exeArgs := '"' . A_ScriptFullPath . '" /autostart'
+    }
+    ; 1) a scheduled task that starts at logon with the highest rights: no UAC prompt at every start,
+    ;    and none of the default limits (not on battery, stop after 3 days) that stop a plain task
     if (A_IsAdmin) {
+        domain := EnvGet("USERDOMAIN")
+        if (domain = "")
+            domain := A_ComputerName
+        who := XmlEsc(domain . "\" . A_UserName)
+        xml := '<?xml version="1.0" encoding="UTF-16"?>`r`n'
+            . '<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">`r`n'
+            . '<RegistrationInfo><Description>Combo ReMapper starts at logon</Description></RegistrationInfo>`r`n'
+            . '<Triggers><LogonTrigger><Enabled>true</Enabled><UserId>' . who . '</UserId><Delay>PT5S</Delay></LogonTrigger></Triggers>`r`n'
+            . '<Principals><Principal id="Author"><UserId>' . who . '</UserId><LogonType>InteractiveToken</LogonType><RunLevel>HighestAvailable</RunLevel></Principal></Principals>`r`n'
+            . '<Settings><MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy><DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>'
+            . '<StopIfGoingOnBatteries>false</StopIfGoingOnBatteries><AllowHardTerminate>true</AllowHardTerminate><StartWhenAvailable>true</StartWhenAvailable>'
+            . '<RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable><AllowStartOnDemand>true</AllowStartOnDemand><Enabled>true</Enabled><Hidden>false</Hidden>'
+            . '<ExecutionTimeLimit>PT0S</ExecutionTimeLimit><Priority>7</Priority></Settings>`r`n'
+            . '<Actions Context="Author"><Exec><Command>' . XmlEsc(exeFile) . '</Command><Arguments>' . XmlEsc(exeArgs) . '</Arguments>'
+            . '<WorkingDirectory>' . XmlEsc(A_ScriptDir) . '</WorkingDirectory></Exec></Actions>`r`n</Task>'
+        xmlPath := A_Temp "\ComboReMapper_task.xml"
         rc := -1
-        taskCmd := A_IsCompiled ? '\"' . A_ScriptFullPath . '\"' : '\"' . A_AhkPath . '\" \"' . A_ScriptFullPath . '\"'
-        try rc := RunWait('schtasks.exe /Create /TN "' . taskName . '" /TR "' . taskCmd . '" /SC ONLOGON /RL HIGHEST /F', , "Hide")
+        try {
+            try FileDelete(xmlPath)
+            f := FileOpen(xmlPath, "w", "UTF-16")
+            f.Write(xml)
+            f.Close()
+            rc := SchTasksRun('/Create /TN "' . taskName . '" /XML "' . xmlPath . '" /F', &out)
+        }
+        try FileDelete(xmlPath)
         if (rc = 0) {
             try RegDelete(regKey, appName)
+            LogEvent("Auto-start: scheduled task created for " . domain . "\" . A_UserName)
             return "task"
         }
+        LogEvent("Auto-start: the scheduled task could not be created (code " . rc . "): " . out)
     }
     ; 2) a normal start-up entry (Windows may ask for administrator rights at each start)
     try {
-        RegWrite(exePart, "REG_SZ", regKey, appName)
+        RegWrite('"' . exeFile . '" ' . exeArgs, "REG_SZ", regKey, appName)
+        LogEvent("Auto-start: start-up entry written (not a scheduled task)")
         return "run"
     }
+    LogEvent("Auto-start: nothing could be written")
     return "failed"
 }
 
@@ -7770,7 +7826,7 @@ try {
     if (IniRead(globalSettingsFile, "Global", "WizardOffer", "ask") != "never")
         SetTimer(OfferWizard, -1500)
 }
-DiagLog("Started 9.7 | AHK " . A_AhkVersion . " | Windows " . A_OSVersion . " | admin: " . (A_IsAdmin ? "yes" : "no") . " | profile: " . currentProfile)
+DiagLog("Started 9.7 | AHK " . A_AhkVersion . " | Windows " . A_OSVersion . " | admin: " . (A_IsAdmin ? "yes" : "no") . " | profile: " . currentProfile . (startedByAutoStart ? " | started by Windows auto-start" : ""))
 SetTimer(AutoProfileTick, 600)
 bootDone := true
 if (runAsAdmin && !A_IsAdmin)
