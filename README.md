@@ -7,12 +7,13 @@ Combo ReMapper is a remapper for keyboard, mouse and controller input, built for
 It is a single AutoHotkey v2 script. It has no installer and no extra files to set up. The program speaks **English and Hungarian**, and you can add your own language.
 
 > ## ⚠️ AI WARNING — PLEASE READ FIRST
->
+> 
 > **This software was written with AI.** The code was written by an AI (Claude, made by Anthropic). The author, Dani, had the idea, decided how the program should work, tested it on their own games and directed every change. The AI wrote the code.
->
+> 
 > We say this openly because many people don't want AI-made software, and that is a fair choice. If you would rather not use an AI project, please don't. There are no hard feelings.
->
+> 
 > **What that means for you:**
+> 
 > - **It has not been professionally reviewed or audited.** Treat it as a hobby project made for accessibility.
 > - **It can have bugs**, including ones nobody has found yet. Some features were written without being run before release.
 > - **You can read all of it.** It is one plain-text script. Read it, or have someone you trust read it, before you run it.
@@ -21,7 +22,7 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 > - **If it breaks,** report it. Tray menu -> More -> *Copy diagnostics* gives the details to paste into an issue.
 
 > ## ℹ️ JUST A FUN PROJECT
->
+> 
 > Combo ReMapper has two hidden colour themes, **Cyber Red** and **Cyber Yellow**. This is just a fun project. It is **not affiliated with, sponsored by or endorsed by any company or brand**. See [Hidden themes](#hidden-themes).
 
 **Language / Nyelv:** English (this part) | [Magyar](#combo-remapper-97--magyar)
@@ -46,16 +47,16 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 10. [Profiles, pages and the cheat sheet](#profiles-pages-and-the-cheat-sheet)
 11. [The setup wizard](#the-setup-wizard)
 12. [Settings and customization](#settings-and-customization)
-13. [Languages](#languages)
-14. [Quick time events](#quick-time-events)
-15. [Accessibility tools](#accessibility-tools)
-16. [Game compatibility](#game-compatibility) (including emulators)
-17. [Default hotkeys](#default-hotkeys)
-18. [Safety](#safety)
-19. [Troubleshooting](#troubleshooting)
-20. [Files the program uses](#files-the-program-uses)
-21. [Hidden themes](#hidden-themes)
-22. [What's new in 9.7](#whats-new-in-97)
+13. [Auto-start with Windows](#auto-start-with-windows)
+14. [Languages](#languages)
+15. [Quick time events](#quick-time-events)
+16. [Accessibility tools](#accessibility-tools)
+17. [Game compatibility](#game-compatibility) (including emulators)
+18. [Default hotkeys](#default-hotkeys)
+19. [Safety](#safety)
+20. [Troubleshooting](#troubleshooting)
+21. [Files the program uses](#files-the-program-uses)
+22. [Hidden themes](#hidden-themes)
 23. [About](#about)
 
 ---
@@ -120,7 +121,7 @@ Each row in the main window is:
 When you press the trigger, the program sends the combo to the game. Rows only react while the **Target program** is in front. Leave the target empty (or `(any)`) to react in every window.
 
 | Part | What it is |
-|---|---|
+| --- | --- |
 | **Trigger** | The key or mouse button you press. The **Set** button next to it listens for your next key press and fills it in. |
 | **Combo** | What the program sends, as comma-separated words (see [Combo words](#combo-words)). The **Auto** button records the keys you press into the combo. |
 | **Mode** | How the trigger behaves (see [Modes](#modes)). |
@@ -131,7 +132,7 @@ Right-click a row for more tools: test-fire it, set the repeat interval, insert 
 ## Modes
 
 | Mode | What it does |
-|---|---|
+| --- | --- |
 | **Hold** | Sends the combo while you hold the trigger, and lets go when you release. |
 | **Toggle** | Press once to hold the keys down, press again to let go. |
 | **Press** | One quick press of the combo each time. |
@@ -145,7 +146,7 @@ Right-click a row for more tools: test-fire it, set the repeat interval, insert 
 Separate words with commas.
 
 | Word | Meaning |
-|---|---|
+| --- | --- |
 | `w`, `shift`, `space`, `f5` | Keys by name |
 | `d150` or `150` | Wait 150 milliseconds (a single digit is a real key) |
 | `mlc` `mrc` `mmc` | Left, right and middle click |
@@ -170,7 +171,7 @@ Separate words with commas.
 Copy these into the combo box.
 
 | I want | Combo |
-|---|---|
+| --- | --- |
 | Shift and Space together | `down:lshift,d30,space,d40,up:lshift` |
 | Hold a key for half a second | `down:e,d500,up:e` |
 | Tap a key three times | `e,d60,e,d60,e` |
@@ -195,6 +196,7 @@ Copy these into the combo box.
 **Pages.** Each page is a profile. In **Settings -> Pages...** add profiles in the order you want, then choose a **Next-page key** and an optional **Previous-page key**. After the last page, Next goes back to the first. Held keys are let go on every switch. The status box and cheat sheet show which page you are on, such as "Page 2 of 4".
 
 **Cheat sheet.** Set a cheat-sheet key in the same window (F1 in the ready-made profiles).
+
 - First press: every key of the profile, and of all its pages, with a plain-language note on each.
 - Second press: the same list with the exact combo each key sends.
 - Third press: closes it.
@@ -217,7 +219,7 @@ The **What does everything do?** button explains every question and button, and 
 Open **Settings** from the tray icon.
 
 | Where | What you can change |
-|---|---|
+| --- | --- |
 | **Settings** | Input mode, language, startup (**Auto-Start with Windows Startup** applies at once and starts the program at logon, with administrator rights and no UAC prompt when it can) and display options, the scroll-click key and the Y-axis lock key. (The panic key is in the main window.) |
 | **Settings -> Pages...** | Next-page key, previous-page key, the list of pages, and the cheat-sheet key. |
 | **Settings -> Controller...** | Controller type and stick settings. The controller is off by default. |
@@ -228,6 +230,71 @@ Open **Settings** from the tray icon.
 Input modes (**Game**, **Classic**, **Hybrid**) change how keys are sent. If a game ignores the keys, try another mode (also in the tray menu).
 
 Hover over a setting in the Settings window for a short explanation. **Help...** in the tray menu has the full reference inside the program.
+
+## Auto-start with Windows
+
+This section explains in detail what the **Auto-Start with Windows Startup** check box does, how to check it, and what to do when it does not work.
+
+### Turning it on and off
+
+Open **Settings** (tray icon -> Settings) and tick **Auto-Start with Windows Startup** in the *Startup, display and input* group. It works at once. You do not have to press *Save Settings*. A short notice tells you how it was set up (see below). Unticking the box removes everything it made.
+
+### The two ways it can start
+
+The program tries the better way first and falls back to the second one. Only one of them is active at a time.
+
+|  | **1. Scheduled task** (preferred) | **2. Start-up entry** (fallback) |
+| --- | --- | --- |
+| **When it is used** | When the program is running as administrator (the default) and Windows lets it create the task. | When the task cannot be made, for example when the program is not running as administrator. |
+| **What it makes** | A task named `ComboReMapper_AutoStart` in Windows Task Scheduler. | A value named `AHK_ComboRemapper` under `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`. |
+| **Starts** | About 5 seconds after **you** log on. | When you log on. |
+| **Rights** | The highest rights, so **no UAC prompt** at each start. | Normal rights first. The program then asks for administrator rights itself, so Windows may show a UAC prompt at every start. If you never see or accept it, the program does not start. |
+| **Notice you see** | *Auto-start is on (starts at logon with administrator rights).* | *Auto-start is on (Windows may ask for administrator rights at each start).* |
+
+If neither can be made you see *Auto-start could not be set* and the box unticks itself.
+
+### What the scheduled task contains
+
+The task is written from an XML file, so it avoids the limits that a plain task has:
+
+- It starts at logon of the current user only, with the highest available rights.
+- It runs `AutoHotkey` with the full path of the script and the word `/autostart`, and the script's folder as the working folder. (A compiled copy is started directly.)
+- It **does start on battery** and does not stop when the laptop goes onto battery.
+- It has **no time limit** (a plain task is stopped after 3 days).
+- If a copy is already running, a second one is not started.
+- If the start was missed, it starts as soon as it can.
+
+### What happens at logon
+
+1. Windows starts the program with `/autostart`.
+2. The program opens the profile you used last. If that profile no longer exists, it opens the first profile it finds. With **Auto-switch Profile by Game** it changes profile when you start a game.
+3. The log (`combo_remapper.log`) gets a *Started* line that ends with *started by Windows auto-start*. This is how you can tell that Windows really started it.
+
+### Things to know
+
+- **The path is stored.** The task and the entry remember where the script and AutoHotkey were when you ticked the box. If you move or rename the script, move it to another drive, or reinstall AutoHotkey to a different place, untick the box and tick it again.
+- **Keep the script on a drive that is there at logon.** A USB stick or a network drive may not be ready yet.
+- **It is per Windows user.** Other users on the same PC are not affected.
+- **Locked-down PCs.** A work or school computer may not allow tasks or start-up entries, and some antivirus programs block `schtasks.exe`. Then you get the notice that it could not be set.
+- **It does not change your games.** The program starts and waits. Rows only react while the **Target program** is in front.
+
+### How to check it yourself
+
+| Where | What to look for |
+| --- | --- |
+| **The notice** | Which of the three messages appeared when you ticked the box. |
+| **The log** (tray menu -> More -> **Open log file**) | Lines that start with *Auto-start:*. They say *scheduled task created for ...*, or *the scheduled task could not be created (code ...)* followed by Windows' own error text, or *start-up entry written*, or *nothing could be written*. After a restart, look for *started by Windows auto-start*. |
+| **Task Scheduler** (press the Windows key, type `Task Scheduler`) | Open *Task Scheduler Library* and look for `ComboReMapper_AutoStart`. Right-click it and choose *Run* to test it without restarting. |
+| **Task Manager -> Startup apps** | Only for the fallback way: an entry for AutoHotkey should be listed and *Enabled*. |
+
+### If it does not start
+
+1. Tick the box again and read the notice.
+2. Open the log and read the *Auto-start:* lines. If it says the task could not be created, copy those lines.
+3. Make sure the program was running as **administrator** when you ticked the box (it asks for it by default). Without that it can only use the fallback way.
+4. Check that the script is still at the same path and that AutoHotkey v2 is installed.
+5. Restart Windows and check the log for *started by Windows auto-start*.
+6. If it is still not working, send the *Auto-start:* lines and the notice you saw in an issue.
 
 ## Languages
 
@@ -244,7 +311,7 @@ The program comes in **English** and **Magyar (Hungarian)**. This includes the m
 Quick time events (timed button prompts) are hard when you need fast, exact presses. These helpers make them easier without reading the screen. Use one key per button and press only the key for the button the prompt shows, because a wrong button can end some mini-games.
 
 | Prompt | Row mode | Combo | What happens |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Mash a button | **Press** | `burst:x,30,40` | One press sends 30 presses of `x`, 40 ms apart (about 1.2 seconds), then stops |
 | Mash left and right | **Press** | `alt:x/c,30,40` | One press alternates `x` and `c` 30 times |
 | Hold a button | **Press** | `hold:x,1000` | One press holds `x` for 1 second, then lets go |
@@ -284,7 +351,7 @@ It does not apply to **DblTap** rows, because those need two quick presses.
 Moves the cursor and clicks with the keyboard, for when using a mouse is hard. Turn it on and off with its own key (default `F11`) or the tray menu item **More -> Keyboard mouse on / off**.
 
 | Action | Default key |
-|---|---|
+| --- | --- |
 | Move up / left / down / right | `E` / `S` / `D` / `F` |
 | Left / right / middle click | `Q` / `W` / `R` |
 | Scroll up / down | `T` / `G` |
@@ -299,8 +366,7 @@ Moves the cursor and clicks with the keyboard, for when using a mouse is hard. T
 One key steps through your actions, so a single switch or button is enough.
 
 1. Press the switch key. A list of this profile's actions appears on screen.
-2. **Automatic mode:** the highlight moves down the list by itself. Press the key when the action you want is highlighted.
-   **Step mode:** tap the key to move to the next action, hold it for about 0.7 seconds to choose.
+2. **Automatic mode:** the highlight moves down the list by itself. Press the key when the action you want is highlighted. **Step mode:** tap the key to move to the next action, hold it for about 0.7 seconds to choose.
 3. The chosen action runs as if you had pressed its own key.
 
 It works best with **Press**, **Toggle** and **TglTurbo** rows. The list shows each row's note, then its mode. It closes by itself if nothing is chosen. Set the speed in milliseconds per step. Tray menu item: **One-button control menu**.
@@ -318,7 +384,7 @@ Combo ReMapper works by sending input to the game, the same way a keyboard or mo
 Games and programs the author has used it with:
 
 | Game / platform | Status | Notes |
-|---|---|---|
+| --- | --- | --- |
 | PCSX2 emulator | ✅ Working | Fully compatible |
 | GTA San Andreas | ✅ Working | Fully compatible |
 | No More Heroes | ✅ Working | Fully compatible |
@@ -362,7 +428,7 @@ Before you use it with a new game:
 ## Default hotkeys
 
 | Hotkey | Action |
-|---|---|
+| --- | --- |
 | `F6` | Toggle the Y-axis mouse lock |
 | `F7` | Show or hide the status box |
 | `F8` | Panic: turn the remapper off and on, and let go of every held key |
@@ -385,7 +451,7 @@ You can change all three in Settings. The ready-made left-hand profiles use `F2`
 ## Troubleshooting
 
 | Problem | What to try |
-|---|---|
+| --- | --- |
 | The program does nothing, or only shows a tray icon (often on another computer) | 1. Make sure it is **AutoHotkey v2** (not v1) and that the script is in a normal folder, not inside a zip. 2. Accept the Windows prompt (UAC) when it asks for administrator rights; if you can't, start it with `/noadmin` or set `RunAsAdmin=0` in `remapper_global.ini`. 3. If a *startup problem* window appears, send its text. 4. Check that your antivirus has not blocked it. |
 | Keys do nothing in the game | Check the **Target program** name in Task Manager, run the program as Administrator, or try another input mode. |
 | A key does nothing at all | Another row, the panic key or another hotkey may already use it. **Check Combos** will tell you. |
@@ -402,7 +468,7 @@ The program writes errors and what fired to `combo_remapper.log` next to the scr
 ## Files the program uses
 
 | File or folder | Purpose |
-|---|---|
+| --- | --- |
 | `Combo_ReMapper_9_7.ahk` | The program. |
 | `profiles\` | One `.ini` file per profile or page. |
 | `lang\` | Extra languages as `.po` files, and the exported template. |
@@ -416,7 +482,7 @@ If the script's own folder can't be written to (for example Program Files, or a 
 Combo ReMapper has two secret colour themes. Each one is unlocked by winning a small on-screen puzzle, the **cyber deck**. It only needs the mouse, and nothing has to be held down.
 
 | Theme | Look | How to unlock it |
-|---|---|---|
+| --- | --- | --- |
 | **Cyber Red** | Near-black background, warm off-white text, red, orange and blue accents | Open **Settings** and click the ⚡ at the bottom left. Win a 5-step pattern. |
 | **Cyber Yellow** | Dark violet background, neon yellow text, cyan and pink accents | Open **Advanced Settings** and click the ◈ next to **Done**. Win a 6-step pattern. |
 
@@ -425,17 +491,6 @@ Combo ReMapper has two secret colour themes. Each one is unlocked by winning a s
 While a cyber theme is on, the status box reads *CYBER MODE: ON* or *CYBER MODE: OFF*, in the theme's colors, and the labels flash for a split second every few seconds.
 
 > **Just a fun project.** The themes are not affiliated with, sponsored by or endorsed by any company or brand.
-
-## What's new in 9.7
-
-- **Fixed:** the on/off switch. Turning the remapper off (panic key, Apply, losing focus) could stop halfway and leave the status box on ACTIVE and keys held. It now always finishes.
-- **Fixed:** a startup error ("Parameter #1 invalid") when the `profiles` folder had other profiles but no `default` one, for example after moving the program to a new folder. It now opens the first profile it finds.
-- **Fixed:** the setup wizard's confirmation window opened behind the wizard and could not be reached. All dialogs now appear in front.
-- **Fixed:** **Auto-Start with Windows Startup** did not work reliably. When the program runs as administrator it now makes a scheduled task (named `ComboReMapper_AutoStart`) that starts it at logon with the highest rights, no UAC prompt, and without the default limits that stop a plain task (not on battery, stop after 3 days). If that is not possible it uses a normal start-up entry. The program tells you which one it used, and the log says "started by Windows auto-start" after a start at logon.
-- **New:** the status box lists every running toggle and turbo, and **Settings -> Customize...** has a check box to turn that list off.
-- **New:** the two hidden themes are now **Cyber Red** and **Cyber Yellow**, and the status box says *CYBER MODE* while one is on.
-- **New:** **Add language file...** adds one or several `.po` translation files at once.
-- **Translation:** every text in the program is now in the Hungarian file and in the exported template.
 
 ## About
 
@@ -456,22 +511,23 @@ A Combo ReMapper egy billentyűzet-, egér- és kontrollerbemenet-átalakító o
 Egyetlen AutoHotkey v2 szkript. Nincs telepítője, és semmilyen további fájlt nem kell beállítani. A program **angolul és magyarul** beszél, és saját nyelvet is hozzáadhatsz.
 
 > ## ⚠️ MESTERSÉGES INTELLIGENCIA FIGYELMEZTETÉS – OLVASD EL ELŐSZÖR
->
+> 
 > **Ez a szoftver mesterséges intelligenciával készült.** A kódot egy MI (a Claude, az Anthropic terméke) írta. A szerző, Dani, találta ki az ötletet, eldöntötte, hogyan működjön a program, kipróbálta a saját játékain, és irányította minden változtatást. A kódot az MI írta.
->
+> 
 > Ezt nyíltan kimondjuk, mert sokan nem szeretnének MI-vel készült szoftvert használni, és ez tisztességes döntés. Ha inkább nem használnál MI-projektet, ne tedd. Nincs harag.
->
+> 
 > **Mit jelent ez neked:**
+> 
 > - **Nem ellenőrizte és nem auditálta szakember.** Kezeld hobbiprojektként, amely a hozzáférhetőségért készült.
 > - **Lehetnek benne hibák**, olyanok is, amelyeket még senki nem talált meg. Néhány funkciót a kiadás előtt nem futtattak le.
 > - **Az egészet elolvashatod.** Egyetlen egyszerű szöveges szkript. Olvasd el, vagy kérj meg valakit, akiben megbízol, mielőtt futtatod.
 > - **Vizsgáld meg a saját vírusirtóddal**, mint minden letöltést. Az átalakító eszközök téves riasztást válthatnak ki.
 > - **Nincs garancia.** Saját felelősségedre használd. Ne használd online vagy versenyjátékokban, mert a fiókodat kitilthatják.
-> - **Ha elromlik,** jelezd. Tálcamenü -> Több -> *Diagnosztika másolása* megadja a részleteket, amelyeket beilleszthetsz egy hibajelentésbe.
+> - **Ha elromlik,** jelezd. Tálcamenü -> Továbbiak -> *Diagnosztika másolása* megadja a részleteket, amelyeket beilleszthetsz egy hibajelentésbe.
 
 > ## ℹ️ CSAK EGY SZÓRAKOZTATÓ PROJEKT
->
-> A Combo ReMapper-ben két rejtett színtéma van, a **Cyber Red** és a **Cyber Yellow**. Ez csak egy szórakoztató projekt. **Semmilyen céggel vagy márkával nem áll kapcsolatban, egyikük sem szponzorálja vagy támogatja.** Lásd: [Rejtett témák](#rejtett-témák).
+> 
+> A Combo ReMapper-ben két rejtett színtéma van, a **Cyber Red** és a **Cyber Yellow**. Ez csak egy szórakoztató projekt. **Semmilyen céggel vagy márkával nem áll kapcsolatban, egyikük sem szponzorálja vagy támogatja.** Lásd: [Rejtett témák](#rejtett-t%C3%A9m%C3%A1k).
 
 **Language / Nyelv:** [English](#combo-remapper-97) | Magyar (ez a rész)
 
@@ -483,29 +539,29 @@ Egyetlen AutoHotkey v2 szkript. Nincs telepítője, és semmilyen további fájl
 
 ## Tartalom
 
-1. [Bemutató videók](#nézd-meg-a-bemutatókat)
-2. [Mit csinál](#mit-csinál)
-3. [Kinek készült](#kinek-készült)
-4. [Mire van szükséged](#mire-van-szükséged)
-5. [Gyors kezdés](#gyors-kezdés)
-6. [Hogyan működik](#hogyan-működik)
-7. [Módok](#módok)
-8. [Kombószavak](#kombószavak)
-9. [Kombóreceptek](#kombóreceptek)
-10. [Profilok, lapok és a puskalap](#profilok-lapok-és-a-puskalap)
-11. [A beállítási varázsló](#a-beállítási-varázsló)
-12. [Beállítások és testreszabás](#beállítások-és-testreszabás)
-13. [Nyelvek](#nyelvek)
-14. [Quick time eventek](#quick-time-eventek)
-15. [Kisegítő eszközök](#kisegítő-eszközök)
-16. [Játékkompatibilitás](#játékkompatibilitás)
-17. [Alapértelmezett gyorsbillentyűk](#alapértelmezett-gyorsbillentyűk)
-18. [Biztonság](#biztonság)
-19. [Hibaelhárítás](#hibaelhárítás)
-20. [A program által használt fájlok](#a-program-által-használt-fájlok)
-21. [Rejtett témák](#rejtett-témák)
-22. [Újdonságok a 9.7-ben](#újdonságok-a-97-ben)
-23. [Névjegy](#névjegy)
+1. [Bemutató videók](#n%C3%A9zd-meg-a-bemutat%C3%B3kat)
+2. [Mit csinál](#mit-csin%C3%A1l)
+3. [Kinek készült](#kinek-k%C3%A9sz%C3%BClt)
+4. [Mire van szükséged](#mire-van-sz%C3%BCks%C3%A9ged)
+5. [Gyors kezdés](#gyors-kezd%C3%A9s)
+6. [Hogyan működik](#hogyan-m%C5%B1k%C3%B6dik)
+7. [Módok](#m%C3%B3dok)
+8. [Kombószavak](#komb%C3%B3szavak)
+9. [Kombóreceptek](#komb%C3%B3receptek)
+10. [Profilok, lapok és a puskalap](#profilok-lapok-%C3%A9s-a-puskalap)
+11. [A beállítási varázsló](#a-be%C3%A1ll%C3%ADt%C3%A1si-var%C3%A1zsl%C3%B3)
+12. [Beállítások és testreszabás](#be%C3%A1ll%C3%ADt%C3%A1sok-%C3%A9s-testreszab%C3%A1s)
+13. [Automatikus indítás a Windowsszal](#automatikus-ind%C3%ADt%C3%A1s-a-windowsszal)
+14. [Nyelvek](#nyelvek)
+15. [Quick time eventek](#quick-time-eventek)
+16. [Kisegítő eszközök](#kiseg%C3%ADt%C5%91-eszk%C3%B6z%C3%B6k)
+17. [Játékkompatibilitás](#j%C3%A1t%C3%A9kkompatibilit%C3%A1s)
+18. [Alapértelmezett gyorsbillentyűk](#alap%C3%A9rtelmezett-gyorsbillenty%C5%B1k)
+19. [Biztonság](#biztons%C3%A1g)
+20. [Hibaelhárítás](#hibaelh%C3%A1r%C3%ADt%C3%A1s)
+21. [A program által használt fájlok](#a-program-%C3%A1ltal-haszn%C3%A1lt-f%C3%A1jlok)
+22. [Rejtett témák](#rejtett-t%C3%A9m%C3%A1k)
+23. [Névjegy](#n%C3%A9vjegy)
 
 ---
 
@@ -535,7 +591,7 @@ A Combo ReMapper azoknak készült, akiknek nehéz a szokásos billentyűzet-, e
 
 A programot egy mozgássérült játékos írta pontosan erre a célra, és minden funkció célja a játék fizikai megterhelésének csökkentése.
 
-**Mire nem való.** Nem online vagy versenyjátékokhoz készült, ahol az automatizálás megszegheti a szabályokat, és a fiókokat kitilthatják. Lásd: [Játékkompatibilitás](#játékkompatibilitás).
+**Mire nem való.** Nem online vagy versenyjátékokhoz készült, ahol az automatizálás megszegheti a szabályokat, és a fiókokat kitilthatják. Lásd: [Játékkompatibilitás](#j%C3%A1t%C3%A9kkompatibilit%C3%A1s).
 
 ---
 
@@ -569,10 +625,10 @@ A főablak minden sora:
 Amikor megnyomod a kiváltót, a program elküldi a kombót a játéknak. A sorok csak akkor reagálnak, amikor a **Célprogram** van előtérben. Hagyd üresen a célprogramot (vagy írd be: `(any)`), hogy minden ablakban reagáljanak.
 
 | Rész | Mi ez |
-|---|---|
+| --- | --- |
 | **Kiváltó** | A billentyű vagy egérgomb, amelyet megnyomsz. A mellette lévő **Vál.** gomb figyeli a következő leütésedet, és beírja. |
-| **Kombó** | Amit a program elküld, vesszővel elválasztott szavakként (lásd: [Kombószavak](#kombószavak)). Az **Auto** gomb a lenyomott billentyűidet rögzíti a kombóba. |
-| **Mód** | Hogyan viselkedik a kiváltó (lásd: [Módok](#módok)). |
+| **Kombó** | Amit a program elküld, vesszővel elválasztott szavakként (lásd: [Kombószavak](#komb%C3%B3szavak)). Az **Auto** gomb a lenyomott billentyűidet rögzíti a kombóba. |
+| **Mód** | Hogyan viselkedik a kiváltó (lásd: [Módok](#m%C3%B3dok)). |
 | **Be** | A jelölőnégyzet, amely egyetlen sort kapcsol be vagy ki. |
 
 Kattints jobb gombbal egy sorra további eszközökért: próbaindítás, az ismétlési időköz beállítása, egérműveletek beszúrása, sor megkettőzése vagy törlése.
@@ -582,7 +638,7 @@ Kattints jobb gombbal egy sorra további eszközökért: próbaindítás, az ism
 A programban a módok nevei magyarul jelennek meg (Tartás, Kapcsoló, Lenyomás, Turbó, Kopp/Tart, Dupla, Auto-turbó). Itt az angol nevek szerepelnek, hogy könnyű legyen összevetni a leírásokkal.
 
 | Mód | Mit csinál |
-|---|---|
+| --- | --- |
 | **Hold** (Tartás) | Elküldi a kombót, amíg nyomva tartod a kiváltót, és elengedi, amikor felengeded. |
 | **Toggle** (Kapcsoló) | Egyszer megnyomod, hogy lenyomva tartsa a billentyűket, még egyszer, hogy elengedje. |
 | **Press** (Lenyomás) | A kombó egy gyors leütése minden alkalommal. |
@@ -596,7 +652,7 @@ A programban a módok nevei magyarul jelennek meg (Tartás, Kapcsoló, Lenyomás
 A szavakat vesszővel válaszd el.
 
 | Szó | Jelentés |
-|---|---|
+| --- | --- |
 | `w`, `shift`, `space`, `f5` | Billentyűk név szerint |
 | `d150` vagy `150` | Várj 150 ezredmásodpercet (egyetlen számjegy valódi billentyű) |
 | `mlc` `mrc` `mmc` | Bal, jobb és középső kattintás |
@@ -621,7 +677,7 @@ A `burst`, az `alt` és a `hold` a Press, Turbo, TglTurbo és DblTap módban mű
 Másold ezeket a kombómezőbe.
 
 | Amit szeretnék | Kombó |
-|---|---|
+| --- | --- |
 | Shift és Szóköz együtt | `down:lshift,d30,space,d40,up:lshift` |
 | Egy billentyű tartása fél másodpercig | `down:e,d500,up:e` |
 | Egy billentyű háromszori koppintása | `e,d60,e,d60,e` |
@@ -646,6 +702,7 @@ Másold ezeket a kombómezőbe.
 **Lapok.** Minden lap egy profil. A **Beállítások -> Lapok...** ablakban add hozzá a profilokat a kívánt sorrendben, majd válassz egy **Következő lap billentyűt** és egy tetszőleges **Előző lap billentyűt**. Az utolsó lap után a Következő visszamegy az elsőre. A lenyomva tartott billentyűket minden váltásnál elengedi. Az állapotdoboz és a puskalap mutatja, melyik lapon vagy, például „2. lap a 4-ből".
 
 **Puskalap.** Állíts be egy puskalap-billentyűt ugyanabban az ablakban (a kész profilokban az F1).
+
 - Első leütés: a profil és az összes lapja minden billentyűje, mindegyikhez közérthető megjegyzéssel.
 - Második leütés: ugyanez a lista, mindegyik billentyű pontos kombójával.
 - Harmadik leütés: bezárja.
@@ -668,11 +725,11 @@ A **Mit csinál mindez?** gomb elmagyaráz minden kérdést és gombot, és mind
 Nyisd meg a **Beállításokat** a tálcaikonról.
 
 | Hol | Mit változtathatsz |
-|---|---|
-| **Beállítások** | Bemeneti mód, nyelv, indítás (az **Automatikus indítás a Windows indításakor** azonnal érvényesül, és ha lehet, rendszergazdai joggal, UAC-kérdés nélkül indítja a programot bejelentkezéskor) és megjelenítési beállítások, a görgetéskattintás-billentyű és az Y-tengely zárolás billentyűje. (A vészleállító billentyű a főablakban van.) |
+| --- | --- |
+| **Beállítások** | Bemeneti mód, nyelv, indítás (az **Automatikus indítás a Windows indulásakor** azonnal érvényesül, és ha lehet, rendszergazdai joggal, UAC-kérdés nélkül indítja a programot bejelentkezéskor) és megjelenítési beállítások, a görgetéskattintás-billentyű és az Y-tengely zárolás billentyűje. (A vészleállító billentyű a főablakban van.) |
 | **Beállítások -> Lapok...** | Következő lap billentyű, előző lap billentyű, a lapok listája és a puskalap-billentyű. |
 | **Beállítások -> Kontroller...** | Kontrollertípus és karbeállítások. A kontroller alapból ki van kapcsolva. |
-| **Beállítások -> Kisegítő eszközök...** | Ablakbillentyű, remegésszűrő, billentyűzetes egér és egygombos vezérlés (lásd: [Kisegítő eszközök](#kisegítő-eszközök)). |
+| **Beállítások -> Kisegítő eszközök...** | Ablakbillentyű, remegésszűrő, billentyűzetes egér és egygombos vezérlés (lásd: [Kisegítő eszközök](#kiseg%C3%ADt%C5%91-eszk%C3%B6z%C3%B6k)). |
 | **Beállítások -> Testreszabás...** | Állapotdoboz: szövegméret, átlátszóság, háttérszín, és hogy megmutassa-e a sor nevét, amikor egy sor lefut (és meddig). Puskalap: szövegméret, meddig marad fent, színek, pozíció. |
 | **Speciális beállítások** | Billentyű- és egéridőzítés, **Automatikus érzékelés (mp)** (meddig figyel az Auto, a Vál. és az Auto gomb (automata gomb választás), 3-tól 120-ig), „engedj el mindent, ha a játék elveszti a fókuszt", Futtatás rendszergazdaként, a naplófájl írása, valamint színek és téma. |
 
@@ -680,11 +737,76 @@ A bemeneti módok (**Játék**, **Klasszikus**, **Hibrid**) a billentyűk küld�
 
 Vidd az egeret egy beállítás fölé a Beállítások ablakban egy rövid magyarázatért. A tálcamenü **Súgó...** pontja a program belsejében a teljes leírást tartalmazza.
 
+## Automatikus indítás a Windowsszal
+
+Ez a rész részletesen leírja, mit csinál az **Automatikus indítás a Windows indulásakor** jelölőnégyzet, hogyan ellenőrizheted, és mit tegyél, ha nem működik.
+
+### Bekapcsolás és kikapcsolás
+
+Nyisd meg a **Beállításokat** (tálcaikon -> Beállítások), és pipáld be az **Automatikus indítás a Windows indulásakor** jelölőnégyzetet az *Indítás, megjelenítés és bevitel* csoportban. Azonnal érvényesül, nem kell megnyomnod a *Beállítások mentése* gombot. Egy rövid üzenet megmondja, hogyan állította be (lásd lent). A jelölőnégyzet kikapcsolása mindent töröl, amit létrehozott.
+
+### A két indítási mód
+
+A program először a jobbik módot próbálja, és ha nem sikerül, a másodikra vált. Egyszerre csak az egyik aktív.
+
+|  | **1. Ütemezett feladat** (előnyben) | **2. Indítási bejegyzés** (tartalék) |
+| --- | --- | --- |
+| **Mikor használja** | Ha a program rendszergazdaként fut (ez az alapértelmezés), és a Windows engedi a feladat létrehozását. | Ha a feladat nem hozható létre, például mert a program nem rendszergazdaként fut. |
+| **Mit hoz létre** | Egy `ComboReMapper_AutoStart` nevű feladatot a Windows Feladatütemezőjében. | Egy `AHK_ComboRemapper` nevű értéket itt: `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`. |
+| **Mikor indul** | Kb. 5 másodperccel azután, hogy **te** bejelentkeztél. | Bejelentkezéskor. |
+| **Jogok** | A legmagasabb jogok, ezért **nincs UAC-kérdés** indításkor. | Először normál jogok. A program utána maga kér rendszergazdai jogot, így a Windows minden indításkor UAC-kérdést mutathat. Ha nem látod vagy nem fogadod el, a program nem indul el. |
+| **Az üzenet, amit látsz** | *Az automatikus indítás be van kapcsolva (bejelentkezéskor, rendszergazdai joggal indul).* | *Az automatikus indítás be van kapcsolva (a Windows minden indításkor rendszergazdai jogot kérhet).* |
+
+Ha egyik sem hozható létre, az *Az automatikus indítást nem sikerült beállítani* üzenetet látod, és a jelölőnégyzet magától kikapcsol.
+
+### Mit tartalmaz az ütemezett feladat
+
+A feladat egy XML-fájlból készül, így elkerüli az egyszerű feladatok korlátait:
+
+- Csak az aktuális felhasználó bejelentkezésekor indul, a legmagasabb elérhető jogokkal.
+- Az `AutoHotkey`-t a szkript teljes elérési útjával és az `/autostart` szóval futtatja, munkamappának a szkript mappáját használja. (A lefordított változatot közvetlenül indítja.)
+- **Akkumulátoron is elindul**, és nem áll le, ha a laptop akkumulátorra vált.
+- **Nincs időkorlátja** (egy egyszerű feladatot 3 nap után leállít a Windows).
+- Ha már fut egy példány, nem indít másodikat.
+- Ha az indítás kimaradt, amint lehet, elindul.
+
+### Mi történik bejelentkezéskor
+
+1. A Windows elindítja a programot az `/autostart` kapcsolóval.
+2. A program megnyitja a legutóbb használt profilt. Ha az már nem létezik, az első megtalált profilt nyitja meg. Az **Automatikus profilváltás játék szerint** bekapcsolva profilt vált, amikor elindítasz egy játékot.
+3. A napló (`combo_remapper.log`) egy *Started* sort kap, amely így végződik: *started by Windows auto-start*. Ebből látod, hogy tényleg a Windows indította el.
+
+### Amit érdemes tudni
+
+- **Az elérési utat eltárolja.** A feladat és a bejegyzés megjegyzi, hol volt a szkript és az AutoHotkey, amikor bepipáltad a négyzetet. Ha átmozgatod vagy átnevezed a szkriptet, másik meghajtóra teszed, vagy az AutoHotkey-t másik helyre telepíted újra, kapcsold ki, majd be a jelölőnégyzetet.
+- **A szkript olyan meghajtón legyen, amely bejelentkezéskor már elérhető.** Egy pendrive vagy hálózati meghajtó még nem biztos, hogy kész.
+- **Windows-felhasználónként érvényes.** A gép többi felhasználóját nem érinti.
+- **Zárolt gépek.** Egy munkahelyi vagy iskolai gép nem biztos, hogy engedi a feladatokat vagy az indítási bejegyzéseket, és egyes vírusirtók blokkolják a `schtasks.exe`-t. Ilyenkor azt az üzenetet kapod, hogy nem sikerült beállítani.
+- **A játékaidat nem módosítja.** A program elindul és vár. A sorok csak akkor reagálnak, amikor a **Célprogram** van előtérben.
+
+### Hogyan ellenőrizheted magad
+
+| Hol | Mit keress |
+| --- | --- |
+| **Az üzenet** | A három üzenet közül melyik jelent meg, amikor bepipáltad a négyzetet. |
+| **A napló** (tálcamenü -> Továbbiak -> **Naplófájl megnyitása**) | Az *Auto-start:* kezdetű sorok. Ezek ezt mondják: *scheduled task created for ...*, vagy *the scheduled task could not be created (code ...)* a Windows saját hibaszövegével, vagy *start-up entry written*, vagy *nothing could be written*. Újraindítás után keresd: *started by Windows auto-start*. |
+| **Feladatütemező** (nyomd meg a Windows gombot, és írd be: `Feladatütemező`) | Nyisd meg a *Feladatütemező-tár* részt, és keresd a `ComboReMapper_AutoStart` feladatot. Jobb gombbal a *Futtatás* paranccsal újraindítás nélkül kipróbálhatod. |
+| **Feladatkezelő -> Indítás** | Csak a tartalék módnál: az AutoHotkey bejegyzésének szerepelnie kell a listán, *Engedélyezve* állapotban. |
+
+### Ha nem indul el
+
+1. Pipáld be újra a négyzetet, és olvasd el az üzenetet.
+2. Nyisd meg a naplót, és olvasd el az *Auto-start:* sorokat. Ha azt írja, hogy a feladat nem hozható létre, másold ki ezeket a sorokat.
+3. Győződj meg róla, hogy a program **rendszergazdaként** futott, amikor bepipáltad (alapból ezt kéri). Enélkül csak a tartalék módot tudja használni.
+4. Nézd meg, hogy a szkript még ugyanazon az elérési úton van-e, és hogy az AutoHotkey v2 telepítve van-e.
+5. Indítsd újra a Windowst, és nézd meg a naplóban a *started by Windows auto-start* szöveget.
+6. Ha még mindig nem működik, küldd el egy hibajelentésben az *Auto-start:* sorokat és a látott üzenetet.
+
 ## Nyelvek
 
 A program **angolul** és **magyarul** érhető el. Ez magában foglalja a menüket, ablakokat, súgóbuborékokat, a Súgó ablakot, a varázslót, a módok neveit és a Névjegy ablakot. Tetszőleges számú további nyelvet hozzáadhatsz.
 
-- Válaszd ki a nyelvet a **Beállításokban** (a Nyelv legördülő listában) vagy a **tálcamenüben** (Több -> Nyelv). A program felajánlja az újraindítást, hogy az új nyelv mindenhol érvényesüljön.
+- Válaszd ki a nyelvet a **Beállításokban** (a Nyelv legördülő listában) vagy a **tálcamenüben** (Továbbiak -> Nyelv). A program felajánlja az újraindítást, hogy az új nyelv mindenhol érvényesüljön.
 - **Készíts saját nyelvet.** A Beállításokban nyomd meg a **Sablon exportálása** gombot. Ez létrehozza a `lang\template.po` fájlt a program minden angol szövegével. Fordítsd le (minden `msgid` az angol szöveg, minden `msgstr` a te fordításod), és írd a fájl elejére egy megjegyzéssorba, hogy `# Language: A nyelv neve`. Az üresen hagyott `msgstr` az angol szöveget tartja meg.
 - **Nyelvfájlok hozzáadása.** A Beállításokban nyomd meg a **Nyelvfájl hozzáadása...** gombot (a tálcamenüben is megtalálod a Nyelv alatt), és válassz ki egy vagy **több** `.po` fájlt egyszerre. A program átmásolja őket a `lang` mappába, és a nyelvlistában azonnal megjelennek. Ezután felajánlja, hogy átvált az új nyelvre, és újraindul. A `.po` fájlokat magad is bemásolhatod a `lang` mappába (a **Mappa megnyitása** gombbal megtalálod), például `lang\de.po`.
 - A `lang` mappa minden `.po` fájlja külön nyelv, így a fájlokat meg lehet osztani, és annyit tarthatsz meg, amennyit csak szeretnél. Ha egy fájl neve megegyezik egy beépített nyelvével, felülírja annak szövegeit.
@@ -695,7 +817,7 @@ A program **angolul** és **magyarul** érhető el. Ez magában foglalja a menü
 A quick time eventek (időzített gombkérések) nehezek, ha gyors és pontos leütések kellenek. Ezek a segítők képernyőolvasás nélkül könnyítik meg őket. Használj egy billentyűt gombonként, és csak annak a gombnak a billentyűjét nyomd meg, amelyet a kérés mutat, mert egy rossz gomb egyes minijátékokat véget vethet.
 
 | Kérés | Sormód | Kombó | Mi történik |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Gombnyomkodás | **Press** | `burst:x,30,40` | Egy leütés 30-szor megnyomja az `x`-et, 40 ezredmásodperces időközzel (kb. 1,2 másodperc), aztán leáll |
 | Bal-jobb nyomkodás | **Press** | `alt:x/c,30,40` | Egy leütés 30-szor váltogatja az `x`-et és a `c`-t |
 | Gomb tartása | **Press** | `hold:x,1000` | Egy leütés 1 másodpercig tartja az `x`-et, aztán elengedi |
@@ -732,10 +854,10 @@ A **DblTap** sorokra nem vonatkozik, mert ezekhez két gyors leütés kell.
 
 ### Billentyűzetes egér
 
-A billentyűzettel mozgatja a kurzort és kattint, arra az esetre, ha az egér használata nehéz. Kapcsold be és ki a saját billentyűjével (alapból `F11`) vagy a tálcamenü **Több -> Billentyűzetes egér be / ki** pontjával.
+A billentyűzettel mozgatja a kurzort és kattint, arra az esetre, ha az egér használata nehéz. Kapcsold be és ki a saját billentyűjével (alapból `F11`) vagy a tálcamenü **Továbbiak -> Billentyűzetes egér be / ki** pontjával.
 
 | Művelet | Alapértelmezett billentyű |
-|---|---|
+| --- | --- |
 | Mozgás fel / balra / le / jobbra | `E` / `S` / `D` / `F` |
 | Bal / jobb / középső kattintás | `Q` / `W` / `R` |
 | Görgetés fel / le | `T` / `G` |
@@ -750,8 +872,7 @@ A billentyűzettel mozgatja a kurzort és kattint, arra az esetre, ha az egér h
 Egy billentyű végigléptet a műveleteiden, így egyetlen kapcsoló vagy gomb is elég.
 
 1. Nyomd meg a kapcsolóbillentyűt. Megjelenik a képernyőn a profil műveleteinek listája.
-2. **Automatikus mód:** a kiemelés magától halad lefelé a listán. Nyomd meg a billentyűt, amikor a kívánt művelet ki van emelve.
-   **Léptető mód:** koppints a billentyűre a következő műveletre lépéshez, tartsd nyomva kb. 0,7 másodpercig a kiválasztáshoz.
+2. **Automatikus mód:** a kiemelés magától halad lefelé a listán. Nyomd meg a billentyűt, amikor a kívánt művelet ki van emelve. **Léptető mód:** koppints a billentyűre a következő műveletre lépéshez, tartsd nyomva kb. 0,7 másodpercig a kiválasztáshoz.
 3. A kiválasztott művelet úgy fut le, mintha a saját billentyűjét nyomtad volna meg.
 
 A **Press**, **Toggle** és **TglTurbo** sorokkal működik a legjobban. A lista minden sor megjegyzését mutatja, utána a módját. Magától bezárul, ha semmit nem választasz. A sebességet lépésenkénti ezredmásodpercben állíthatod. Tálcamenü pont: **Egygombos vezérlés menü**.
@@ -769,7 +890,7 @@ A Combo ReMapper úgy működik, hogy bemenetet küld a játéknak, ugyanúgy, m
 Játékok és programok, amelyekkel a szerző használta:
 
 | Játék / platform | Állapot | Megjegyzés |
-|---|---|---|
+| --- | --- | --- |
 | PCSX2 emulátor | ✅ Működik | Teljesen kompatibilis |
 | GTA San Andreas | ✅ Működik | Teljesen kompatibilis |
 | No More Heroes | ✅ Működik | Teljesen kompatibilis |
@@ -805,7 +926,7 @@ Mielőtt új játékkal használod:
 
 ### Ha a játék nem veszi figyelembe a billentyűket
 
-- Próbálj ki másik **bemeneti módot** (Játék, Klasszikus vagy Hibrid) a Beállításokban vagy a tálcamenüben (Több -> Bemeneti mód).
+- Próbálj ki másik **bemeneti módot** (Játék, Klasszikus vagy Hibrid) a Beállításokban vagy a tálcamenüben (Továbbiak -> Bemeneti mód).
 - Futtasd a programot **rendszergazdaként**, ha a játék vagy az emulátor rendszergazdaként fut.
 - Növeld az **Extra leütési időt** a Beállításokban, ha a rövid koppintások kimaradnak.
 - Ellenőrizd, hogy a **Célprogram** neve a játék valódi programneve.
@@ -813,7 +934,7 @@ Mielőtt új játékkal használod:
 ## Alapértelmezett gyorsbillentyűk
 
 | Gyorsbillentyű | Művelet |
-|---|---|
+| --- | --- |
 | `F6` | Az Y-tengely egérzár ki- és bekapcsolása |
 | `F7` | Az állapotdoboz megjelenítése vagy elrejtése |
 | `F8` | Vész: az átalakító ki- és bekapcsolása, és minden lenyomva tartott billentyű elengedése |
@@ -836,24 +957,24 @@ Mindhármat megváltoztathatod a Beállításokban. A kész balkezes profilok az
 ## Hibaelhárítás
 
 | Probléma | Mit próbálj |
-|---|---|
+| --- | --- |
 | A program nem csinál semmit, vagy csak egy tálcaikont mutat (gyakran másik számítógépen) | 1. Győződj meg róla, hogy **AutoHotkey v2** (nem v1), és hogy a szkript egy normál mappában van, nem egy zip fájlban. 2. Fogadd el a Windows kérdését (UAC), amikor rendszergazdai jogot kér; ha nem tudod, indítsd `/noadmin` kapcsolóval, vagy állítsd a `RunAsAdmin=0` értéket a `remapper_global.ini` fájlban. 3. Ha megjelenik egy *indítási probléma* ablak, küldd el a szövegét. 4. Ellenőrizd, hogy a vírusirtód nem blokkolta-e. |
 | A billentyűk nem csinálnak semmit a játékban | Ellenőrizd a **Célprogram** nevét a Feladatkezelőben, futtasd a programot rendszergazdaként, vagy próbálj ki másik bemeneti módot. |
 | Egy billentyű egyáltalán nem csinál semmit | Lehet, hogy egy másik sor, a vészleállító billentyű vagy egy másik gyorsbillentyű már használja. A **Kombók ellenőrzése** megmondja. |
 | Az időzített kérések vagy a rövid koppintások kimaradnak | Növeld az **Extra leütési időt** a Beállításokban. |
 | Egy lenyomva tartott billentyű beragadt | Nyomd meg a vészleállító billentyűt. |
-| Egy sima bal kattintás új lapon nyit meg hivatkozásokat (például Chrome-ban) | Valószínűleg beragadt egy Ctrl, Shift vagy a középső gomb. Nyomd meg a vészleállító billentyűt. A 9.6-os verzió óta a program magától is elengedi a beragadt módosítókat egy pillanat után. Ha mégis előfordul, használd a tálcamenü -> Több -> **Diagnosztika másolása** pontot, amíg történik, és illeszd be az eredményt egy hibajelentésbe. |
-| A program nem indul el a Windowsszal | Pipáld be a Beállításokban az **Automatikus indítás a Windows indításakor** jelölőnégyzetet (azonnal érvényesül, és megmondja, hogyan állította be). Utána nyisd meg a tálcamenü -> Több -> **Naplófájl megnyitása** pontot, és keresd az „Auto-start:” kezdetű sorokat. Újraindítás után a naplóban szerepelnie kell a „started by Windows auto-start” szövegnek. A Feladatütemezőben is megnézheted a `ComboReMapper_AutoStart` feladatot. Ha a napló szerint az ütemezett feladat nem hozható létre, küldd el ezeket a sorokat egy hibajelentésben. |
+| Egy sima bal kattintás új lapon nyit meg hivatkozásokat (például Chrome-ban) | Valószínűleg beragadt egy Ctrl, Shift vagy a középső gomb. Nyomd meg a vészleállító billentyűt. A 9.6-os verzió óta a program magától is elengedi a beragadt módosítókat egy pillanat után. Ha mégis előfordul, használd a tálcamenü -> Továbbiak -> **Diagnosztika másolása** pontot, amíg történik, és illeszd be az eredményt egy hibajelentésbe. |
+| A program nem indul el a Windowsszal | Pipáld be a Beállításokban az **Automatikus indítás a Windows indulásakor** jelölőnégyzetet (azonnal érvényesül, és megmondja, hogyan állította be). Utána nyisd meg a tálcamenü -> Továbbiak -> **Naplófájl megnyitása** pontot, és keresd az „Auto-start:” kezdetű sorokat. Újraindítás után a naplóban szerepelnie kell a „started by Windows auto-start” szövegnek. A Feladatütemezőben is megnézheted a `ComboReMapper_AutoStart` feladatot. Ha a napló szerint az ütemezett feladat nem hozható létre, küldd el ezeket a sorokat egy hibajelentésben. |
 | A varázsló nem jelenik meg | Nyisd meg a tálcamenüből. A **Ne kérdezd újra** gomb megnyomása után nem jelenik meg indításkor. |
 | A program rossz nyelven van | Válaszd ki a nyelvet a Beállításokban vagy a tálcamenüben. |
-| Valami elromlott | Tálcamenü -> Több -> **Diagnosztika másolása**, majd illeszd be az eredményt, amikor segítséget kérsz. |
+| Valami elromlott | Tálcamenü -> Továbbiak -> **Diagnosztika másolása**, majd illeszd be az eredményt, amikor segítséget kérsz. |
 
-A program a hibákat és azt, hogy mi futott le, a szkript melletti `combo_remapper.log` fájlba írja (a Speciális beállításokban ki- és bekapcsolható). A tálcamenü -> Több -> **Naplófájl megnyitása** megmutatja.
+A program a hibákat és azt, hogy mi futott le, a szkript melletti `combo_remapper.log` fájlba írja (a Speciális beállításokban ki- és bekapcsolható). A tálcamenü -> Továbbiak -> **Naplófájl megnyitása** megmutatja.
 
 ## A program által használt fájlok
 
 | Fájl vagy mappa | Cél |
-|---|---|
+| --- | --- |
 | `Combo_ReMapper_9_7.ahk` | A program. |
 | `profiles\` | Profilonként vagy lapként egy `.ini` fájl. |
 | `lang\` | További nyelvek `.po` fájlként, és az exportált sablon. |
@@ -867,7 +988,7 @@ Ha a szkript saját mappájába nem lehet írni (például Program Files vagy v�
 A Combo ReMapper-ben két titkos színtéma van. Mindegyiket egy kis képernyőn megjelenő feladvány megnyerésével lehet feloldani, ez a **kiber konzol**. Csak egér kell hozzá, és semmit nem kell lenyomva tartani.
 
 | Téma | Kinézet | Hogyan oldd fel |
-|---|---|---|
+| --- | --- | --- |
 | **Cyber Red** | Majdnem fekete háttér, meleg törtfehér szöveg, piros, narancs és kék kiemelések | Nyisd meg a **Beállításokat**, és kattints a bal alsó sarokban lévő ⚡ jelre. Nyerj meg egy 5 lépéses mintát. |
 | **Cyber Yellow** | Sötét ibolya háttér, neonsárga szöveg, ciánkék és rózsaszín kiemelések | Nyisd meg a **Speciális beállításokat**, és kattints a **Kész** gomb melletti ◈ jelre. Nyerj meg egy 6 lépéses mintát. |
 
@@ -876,17 +997,6 @@ A Combo ReMapper-ben két titkos színtéma van. Mindegyiket egy kis képernyőn
 Amíg valamelyik kiber téma be van kapcsolva, az állapotdoboz a téma színeivel *KIBER MÓD: BE* vagy *KIBER MÓD: KI* feliratot mutat, a feliratok pedig néhány másodpercenként egy pillanatra felvillannak.
 
 > **Ez csak egy szórakoztató projekt.** A témák semmilyen céggel vagy márkával nem állnak kapcsolatban, egyikük sem szponzorálja vagy támogatja őket.
-
-## Újdonságok a 9.7-ben
-
-- **Javítva:** a ki- és bekapcsolás. A remapper kikapcsolása (vészleállító billentyű, Alkalmaz, fókuszvesztés) félúton megállhatott, és az állapotdoboz ACTIVE-on, a billentyűk lenyomva maradhattak. Mostantól mindig végigfut.
-- **Javítva:** indítási hiba („Parameter #1 invalid”), ha a `profiles` mappában voltak más profilok, de `default` nem, például a program új mappába költöztetése után. Mostantól az első megtalált profilt nyitja meg.
-- **Javítva:** a beállítási varázsló megerősítő ablaka a varázsló mögé került, és nem lehetett elérni. Minden párbeszédablak most elöl jelenik meg.
-- **Javítva:** az **Automatikus indítás a Windows indításakor** nem működött megbízhatóan. Rendszergazdai futásnál most ütemezett feladatot készít (neve `ComboReMapper_AutoStart`), amely bejelentkezéskor, a legmagasabb jogokkal, UAC-kérdés nélkül indítja a programot, és az alapértelmezett korlátozások (akkumulátoron nem indul, 3 nap után leáll) nélkül. Ha ez nem lehetséges, normál indítási bejegyzést használ. A program megmondja, melyiket használta, és a napló a bejelentkezéskori indítás után azt írja: „started by Windows auto-start”.
-- **Új:** az állapotdoboz felsorolja az összes futó kapcsolót és turbót, a **Beállítások -> Testreszabás...** ablakban pedig egy jelölőnégyzettel kikapcsolhatod ezt a listát.
-- **Új:** a két rejtett téma neve most **Cyber Red** és **Cyber Yellow**, és az állapotdoboz *KIBER MÓD* feliratot mutat, amíg valamelyik be van kapcsolva.
-- **Új:** a **Nyelvfájl hozzáadása...** egyszerre egy vagy több `.po` fordítási fájlt ad hozzá.
-- **Fordítás:** a program minden szövege szerepel a magyar fájlban és a kiexportált sablonban.
 
 ## Névjegy
 
