@@ -1,4 +1,4 @@
-# Combo ReMapper 9.7
+# Combo ReMapper 9.8
 
 **Play and work with fewer keys, fewer fingers and less effort.**
 
@@ -25,7 +25,7 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 > 
 > Combo ReMapper has two hidden colour themes, **Cyber Red** and **Cyber Yellow**. This is just a fun project. It is **not affiliated with, sponsored by or endorsed by any company or brand**. See [Hidden themes](#hidden-themes).
 
-**Language / Nyelv:** English (this part) | [Magyar](#combo-remapper-97--magyar)
+**Language / Nyelv:** English (this part) | [Magyar](#combo-remapper-98--magyar)
 
 ### Watch the demos
 
@@ -57,7 +57,8 @@ It is a single AutoHotkey v2 script. It has no installer and no extra files to s
 20. [Troubleshooting](#troubleshooting)
 21. [Files the program uses](#files-the-program-uses)
 22. [Hidden themes](#hidden-themes)
-23. [About](#about)
+23. [What's new in 9.8](#whats-new-in-98)
+24. [About](#about)
 
 ---
 
@@ -95,14 +96,14 @@ The program was written by a handicapped player for exactly this use, and every 
 
 - Windows 10 or 11.
 - [AutoHotkey v2](https://www.autohotkey.com/) (v2 only, not v1).
-- The script `Combo_ReMapper_9_7.ahk`.
+- The script `Combo_ReMapper_9_8.ahk`.
 
 Run it as Administrator (the default) if the game runs as administrator.
 
 ## Quick start
 
 1. Install AutoHotkey v2.
-2. Put `Combo_ReMapper_9_7.ahk` in its own folder and double-click it. A tray icon appears.
+2. Put `Combo_ReMapper_9_8.ahk` in its own folder and double-click it. A tray icon appears.
 3. On first start a welcome window offers the **setup wizard**. Press *Open the wizard*.
 4. Answer the questions: which hand you use, a profile name, which program is the game, which keys the game already uses, and what you want one key to do.
 5. Press **Create profile**, read the summary, and confirm.
@@ -128,6 +129,8 @@ When you press the trigger, the program sends the combo to the game. Rows only r
 | **On** | The checkbox that switches a single row on or off. |
 
 Right-click a row for more tools: test-fire it, set the repeat interval, insert mouse actions, duplicate or clear it.
+
+While the remapper is switched **off** (panic key), your keys are not caught at all: every key goes straight to the game or program and works exactly as normal. See [Safety](#safety).
 
 ## Modes
 
@@ -435,6 +438,8 @@ Before you use it with a new game:
 
 You can change all three in Settings. The ready-made left-hand profiles use `F2` for panic and `F1` for the cheat sheet.
 
+While the remapper is **off**, only the panic key, the status-box key (`F7`) and the window key (`F12`) still react. Every other key, including `F6`, the cheat-sheet key, the page keys and the keyboard-mouse keys, is free and goes to the game as normal.
+
 **The status box** (F7 shows or hides it) shows *REMAPPER: ACTIVE* or *REMAPPER: DISABLED*. Under that line it lists everything that is running by itself, one line each: a dot (●) for a Toggle row that is on, and a double arrow (») for a Turbo or TglTurbo row that is repeating. Each line shows the row's note, or the key and what it sends if it has no note. When a row fires, the box also flashes its name for a moment. You can switch the list off in **Settings -> Customize...** (*List running toggles and turbos in the status box*).
 
 ---
@@ -442,6 +447,7 @@ You can change all three in Settings. The ready-made left-hand profiles use `F2`
 ## Safety
 
 - **Panic key.** Turns the whole remapper off and on at once and lets go of every held key. Default F8, and F2 in the ready-made left-hand profiles. It can't be left blank.
+- **Off means off.** While the remapper is off, none of your keys are caught: every trigger key, the scroll-click key, the Y-axis lock key, the page and cheat-sheet keys and the keyboard-mouse and one-button keys go straight to the game or program like on a normal keyboard. Only the panic key, the status-box key and the window key stay active so you can switch back on. If the Y-axis lock was on, it is let go. (In 9.7 and earlier the keys were still caught and thrown away, so they looked locked.)
 - **Focus-loss release.** When you switch away from the game (Alt+Tab, crash, minimize), held keys, toggles and auto-repeats are stopped so nothing stays stuck. This needs a Target program, and you can switch it off in Advanced Settings.
 - **Stuck-modifier release.** If Windows thinks Ctrl, Shift, Alt or the middle mouse button is down while your fingers are not on it and the program is holding nothing, the program lets it go after a short moment and writes a line to the log. A stuck Ctrl or middle button is what makes a normal click open a link in a new tab.
 - **Exit.** Closing the program lets go of every key it was holding.
@@ -455,6 +461,7 @@ You can change all three in Settings. The ready-made left-hand profiles use `F2`
 | The program does nothing, or only shows a tray icon (often on another computer) | 1. Make sure it is **AutoHotkey v2** (not v1) and that the script is in a normal folder, not inside a zip. 2. Accept the Windows prompt (UAC) when it asks for administrator rights; if you can't, start it with `/noadmin` or set `RunAsAdmin=0` in `remapper_global.ini`. 3. If a *startup problem* window appears, send its text. 4. Check that your antivirus has not blocked it. |
 | Keys do nothing in the game | Check the **Target program** name in Task Manager, run the program as Administrator, or try another input mode. |
 | A key does nothing at all | Another row, the panic key or another hotkey may already use it. **Check Combos** will tell you. |
+| Keys still seem blocked after turning the remapper off | Update to 9.8 or newer. In 9.7 and earlier the keys were still caught while the remapper was off. If it still happens in 9.8, check the status box says *REMAPPER: DISABLED*, then use tray menu -> More -> **Copy diagnostics** and paste the result in an issue. |
 | Timed prompts or short taps are missed | Raise **Extra press time** in Settings. |
 | A held key got stuck | Press the panic key. |
 | A normal left click opens links in a new tab (for example in Chrome) | A Ctrl, Shift or middle button is probably stuck. Press the panic key. Since version 9.6 the program also lets go of stuck modifiers by itself after a moment. If it still happens, use tray menu -> More -> **Copy diagnostics** while it is happening and paste the result in an issue. |
@@ -469,7 +476,7 @@ The program writes errors and what fired to `combo_remapper.log` next to the scr
 
 | File or folder | Purpose |
 | --- | --- |
-| `Combo_ReMapper_9_7.ahk` | The program. |
+| `Combo_ReMapper_9_8.ahk` | The program. |
 | `profiles\` | One `.ini` file per profile or page. |
 | `lang\` | Extra languages as `.po` files, and the exported template. |
 | `remapper_global.ini` | Program-wide settings such as the language, the look, Run as Administrator and logging. |
@@ -492,6 +499,18 @@ While a cyber theme is on, the status box reads *CYBER MODE: ON* or *CYBER MODE:
 
 > **Just a fun project.** The themes are not affiliated with, sponsored by or endorsed by any company or brand.
 
+## What's new in 9.8
+
+**Fixed: turning the remapper off did not free the keys.** In 9.7 and earlier, switching the remapper off with the panic key only made the keys do nothing: the program still caught every trigger key and then threw the press away, so the game never got it and the keys looked locked.
+
+From 9.8 on, switching the remapper off really lets go of the keys:
+
+- Every trigger key, the scroll-click key, the Y-axis lock key, the page keys, the cheat-sheet key, the keyboard-mouse key and the one-button key are released and work normally.
+- The panic key, the status-box key (`F7`) and the window key (`F12`) stay active, so you can always switch back on.
+- If the Y-axis lock was on, it is let go.
+- Switching profiles, saving or using the **Set** and **Auto** buttons while the remapper is off does not turn the keys back on by accident.
+- Switching the remapper on registers all the keys again.
+
 ## About
 
 Made by **Dani**.
@@ -502,7 +521,7 @@ This program was written with the help of AI (Claude, made by Anthropic). Dani c
 
 ---
 
-# Combo ReMapper 9.7 – Magyar
+# Combo ReMapper 9.8 – Magyar
 
 **Játssz és dolgozz kevesebb billentyűvel, kevesebb ujjal és kevesebb erőfeszítéssel.**
 
@@ -529,7 +548,7 @@ Egyetlen AutoHotkey v2 szkript. Nincs telepítője, és semmilyen további fájl
 > 
 > A Combo ReMapper-ben két rejtett színtéma van, a **Cyber Red** és a **Cyber Yellow**. Ez csak egy szórakoztató projekt. **Semmilyen céggel vagy márkával nem áll kapcsolatban, egyikük sem szponzorálja vagy támogatja.** Lásd: [Rejtett témák](#rejtett-t%C3%A9m%C3%A1k).
 
-**Language / Nyelv:** [English](#combo-remapper-97) | Magyar (ez a rész)
+**Language / Nyelv:** [English](#combo-remapper-98) | Magyar (ez a rész)
 
 ### Nézd meg a bemutatókat
 
@@ -561,7 +580,8 @@ Egyetlen AutoHotkey v2 szkript. Nincs telepítője, és semmilyen további fájl
 20. [Hibaelhárítás](#hibaelh%C3%A1r%C3%ADt%C3%A1s)
 21. [A program által használt fájlok](#a-program-%C3%A1ltal-haszn%C3%A1lt-f%C3%A1jlok)
 22. [Rejtett témák](#rejtett-t%C3%A9m%C3%A1k)
-23. [Névjegy](#n%C3%A9vjegy)
+23. [Újdonságok a 9.8-ban](#%C3%BAjdons%C3%A1gok-a-98-ban)
+24. [Névjegy](#n%C3%A9vjegy)
 
 ---
 
@@ -599,14 +619,14 @@ A programot egy mozgássérült játékos írta pontosan erre a célra, és mind
 
 - Windows 10 vagy 11.
 - [AutoHotkey v2](https://www.autohotkey.com/) (csak v2, a v1 nem jó).
-- A `Combo_ReMapper_9_7.ahk` szkript.
+- A `Combo_ReMapper_9_8.ahk` szkript.
 
 Futtasd rendszergazdaként (ez az alapértelmezés), ha a játék rendszergazdaként fut.
 
 ## Gyors kezdés
 
 1. Telepítsd az AutoHotkey v2-t.
-2. Tedd a `Combo_ReMapper_9_7.ahk` fájlt egy saját mappába, és kattints rá duplán. Megjelenik egy tálcaikon.
+2. Tedd a `Combo_ReMapper_9_8.ahk` fájlt egy saját mappába, és kattints rá duplán. Megjelenik egy tálcaikon.
 3. Az első indításkor egy üdvözlőablak felajánlja a **beállítási varázslót**. Nyomd meg a *Varázsló megnyitása* gombot.
 4. Válaszolj a kérdésekre: melyik kezedet használod, mi legyen a profil neve, melyik program a játék, mely billentyűket használja már a játék, és mit szeretnél, hogy egy billentyű csináljon.
 5. Nyomd meg a **Profil létrehozása** gombot, olvasd el az összefoglalót, és erősítsd meg.
@@ -632,6 +652,8 @@ Amikor megnyomod a kiváltót, a program elküldi a kombót a játéknak. A soro
 | **Be** | A jelölőnégyzet, amely egyetlen sort kapcsol be vagy ki. |
 
 Kattints jobb gombbal egy sorra további eszközökért: próbaindítás, az ismétlési időköz beállítása, egérműveletek beszúrása, sor megkettőzése vagy törlése.
+
+Amíg az átalakító **ki van kapcsolva** (vészleállító billentyű), a program egyetlen billentyűdet sem fogja el: minden billentyű egyenesen a játékhoz vagy a programhoz megy, és pontosan úgy működik, mint máskor. Lásd: [Biztonság](#biztons%C3%A1g).
 
 ## Módok
 
@@ -941,6 +963,8 @@ Mielőtt új játékkal használod:
 
 Mindhármat megváltoztathatod a Beállításokban. A kész balkezes profilok az `F2`-t használják vészleállításra és az `F1`-et a puskalaphoz.
 
+Amíg az átalakító **ki van kapcsolva**, csak a vészleállító billentyű, az állapotdoboz billentyűje (`F7`) és az ablakbillentyű (`F12`) reagál. Minden más billentyű, az `F6`, a puskalap-billentyű, a lapbillentyűk és a billentyűzetes egér billentyűi is, szabad, és a megszokott módon a játékhoz megy.
+
 **Az állapotdoboz** (az F7 megjeleníti vagy elrejti) a *REMAPPER: ACTIVE* vagy *REMAPPER: DISABLED* feliratot mutatja. Alatta soronként felsorol mindent, ami magától fut: pontot (●) a bekapcsolt Toggle sorokhoz, és dupla nyilat (») az ismétlődő Turbo vagy TglTurbo sorokhoz. Minden sor a sor megjegyzését mutatja, vagy a billentyűt és azt, hogy mit küld, ha nincs megjegyzése. Amikor egy sor lefut, a doboz egy pillanatra a nevét is felvillantja. A listát kikapcsolhatod a **Beállítások -> Testreszabás...** ablakban (*Az állapotdobozban listázza a futó kapcsolókat és turbókat*).
 
 ---
@@ -948,6 +972,7 @@ Mindhármat megváltoztathatod a Beállításokban. A kész balkezes profilok az
 ## Biztonság
 
 - **Vészleállító billentyű.** Egyszerre ki- és bekapcsolja az egész átalakítót, és elenged minden lenyomva tartott billentyűt. Alapból F8, a kész balkezes profilokban F2. Nem hagyható üresen.
+- **Kikapcsolva azt jelenti: kikapcsolva.** Amíg az átalakító ki van kapcsolva, egyetlen billentyűdet sem fogja el: minden kiváltóbillentyű, a görgetéskattintás-billentyű, az Y-tengely zárolás billentyűje, a lap- és puskalap-billentyűk, valamint a billentyűzetes egér és az egygombos vezérlés billentyűi egyenesen a játékhoz vagy a programhoz mennek, mint egy hagyományos billentyűzeten. Csak a vészleállító billentyű, az állapotdoboz billentyűje és az ablakbillentyű marad aktív, hogy visszakapcsolhasd. Ha az Y-tengely zár be volt kapcsolva, elengedi. (A 9.7-es és korábbi verziókban a billentyűket ilyenkor is elfogta és eldobta, ezért zároltnak tűntek.)
 - **Elengedés fókuszvesztéskor.** Amikor elváltasz a játékról (Alt+Tab, összeomlás, kicsinyítés), a lenyomva tartott billentyűk, kapcsolók és automatikus ismétlések leállnak, így semmi nem ragad be. Ehhez Célprogram kell, és a Speciális beállításokban kikapcsolható.
 - **Beragadt módosítók elengedése.** Ha a Windows szerint a Ctrl, a Shift, az Alt vagy a középső egérgomb le van nyomva, miközben nincs rajta az ujjad, és a program sem tart semmit, a program rövid idő után elengedi, és egy sort ír a naplóba. A beragadt Ctrl vagy középső gomb miatt nyit meg egy sima kattintás hivatkozást új lapon.
 - **Kilépés.** A program bezárása elenged minden billentyűt, amelyet tartott.
@@ -961,6 +986,7 @@ Mindhármat megváltoztathatod a Beállításokban. A kész balkezes profilok az
 | A program nem csinál semmit, vagy csak egy tálcaikont mutat (gyakran másik számítógépen) | 1. Győződj meg róla, hogy **AutoHotkey v2** (nem v1), és hogy a szkript egy normál mappában van, nem egy zip fájlban. 2. Fogadd el a Windows kérdését (UAC), amikor rendszergazdai jogot kér; ha nem tudod, indítsd `/noadmin` kapcsolóval, vagy állítsd a `RunAsAdmin=0` értéket a `remapper_global.ini` fájlban. 3. Ha megjelenik egy *indítási probléma* ablak, küldd el a szövegét. 4. Ellenőrizd, hogy a vírusirtód nem blokkolta-e. |
 | A billentyűk nem csinálnak semmit a játékban | Ellenőrizd a **Célprogram** nevét a Feladatkezelőben, futtasd a programot rendszergazdaként, vagy próbálj ki másik bemeneti módot. |
 | Egy billentyű egyáltalán nem csinál semmit | Lehet, hogy egy másik sor, a vészleállító billentyű vagy egy másik gyorsbillentyű már használja. A **Kombók ellenőrzése** megmondja. |
+| A billentyűk az átalakító kikapcsolása után is blokkoltnak tűnnek | Frissíts a 9.8-as vagy újabb verzióra. A 9.7-es és korábbi verziókban a billentyűket kikapcsolt átalakítónál is elfogta a program. Ha a 9.8-ban is előfordul, nézd meg, hogy az állapotdoboz a *REMAPPER: DISABLED* feliratot mutatja-e, majd használd a tálcamenü -> Továbbiak -> **Diagnosztika másolása** pontot, és illeszd be az eredményt egy hibajelentésbe. |
 | Az időzített kérések vagy a rövid koppintások kimaradnak | Növeld az **Extra leütési időt** a Beállításokban. |
 | Egy lenyomva tartott billentyű beragadt | Nyomd meg a vészleállító billentyűt. |
 | Egy sima bal kattintás új lapon nyit meg hivatkozásokat (például Chrome-ban) | Valószínűleg beragadt egy Ctrl, Shift vagy a középső gomb. Nyomd meg a vészleállító billentyűt. A 9.6-os verzió óta a program magától is elengedi a beragadt módosítókat egy pillanat után. Ha mégis előfordul, használd a tálcamenü -> Továbbiak -> **Diagnosztika másolása** pontot, amíg történik, és illeszd be az eredményt egy hibajelentésbe. |
@@ -975,7 +1001,7 @@ A program a hibákat és azt, hogy mi futott le, a szkript melletti `combo_remap
 
 | Fájl vagy mappa | Cél |
 | --- | --- |
-| `Combo_ReMapper_9_7.ahk` | A program. |
+| `Combo_ReMapper_9_8.ahk` | A program. |
 | `profiles\` | Profilonként vagy lapként egy `.ini` fájl. |
 | `lang\` | További nyelvek `.po` fájlként, és az exportált sablon. |
 | `remapper_global.ini` | Az egész programra érvényes beállítások, például a nyelv, a megjelenés, a Futtatás rendszergazdaként és a naplózás. |
@@ -997,6 +1023,18 @@ A Combo ReMapper-ben két titkos színtéma van. Mindegyiket egy kis képernyőn
 Amíg valamelyik kiber téma be van kapcsolva, az állapotdoboz a téma színeivel *KIBER MÓD: BE* vagy *KIBER MÓD: KI* feliratot mutat, a feliratok pedig néhány másodpercenként egy pillanatra felvillannak.
 
 > **Ez csak egy szórakoztató projekt.** A témák semmilyen céggel vagy márkával nem állnak kapcsolatban, egyikük sem szponzorálja vagy támogatja őket.
+
+## Újdonságok a 9.8-ban
+
+**Javítva: az átalakító kikapcsolása nem szabadította fel a billentyűket.** A 9.7-es és korábbi verziókban az átalakító kikapcsolása a vészleállító billentyűvel csak azt érte el, hogy a billentyűk nem csináltak semmit: a program minden kiváltóbillentyűt még mindig elfogott, majd eldobta a leütést, így a játék nem kapta meg, és a billentyűk zároltnak tűntek.
+
+A 9.8-tól kezdve az átalakító kikapcsolása tényleg elengedi a billentyűket:
+
+- Minden kiváltóbillentyű, a görgetéskattintás-billentyű, az Y-tengely zárolás billentyűje, a lapbillentyűk, a puskalap-billentyű, a billentyűzetes egér billentyűje és az egygombos vezérlés billentyűje felszabadul, és a megszokott módon működik.
+- A vészleállító billentyű, az állapotdoboz billentyűje (`F7`) és az ablakbillentyű (`F12`) aktív marad, így mindig vissza tudod kapcsolni.
+- Ha az Y-tengely zár be volt kapcsolva, elengedi.
+- A profilváltás, a mentés, valamint a **Vál.** és az **Auto** gomb használata kikapcsolt átalakítónál nem kapcsolja vissza véletlenül a billentyűket.
+- Az átalakító bekapcsolásakor minden billentyű újra bekötődik.
 
 ## Névjegy
 
